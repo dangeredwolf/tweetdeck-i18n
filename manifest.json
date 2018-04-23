@@ -1,0 +1,27 @@
+{
+  "name": "TweetDeck i18n",
+  "short_name": "TweetDeck i18n",
+
+  "description": "A basic wrapper for the tweetdeck-i18n project, an open source project that lets us translate TweetDeck.",
+  "version": "1.0",
+
+  "permissions": [
+    "https://*.twitter.com/",
+    "https://*.twimg.com/"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": ["https://tweetdeck.twitter.com/*"],
+      "js": ["load.js"],
+      "run_at": "document_end"
+    }
+  ],
+
+  "web_accessible_resources": [
+    "*.js"
+  ],
+
+
+  "manifest_version": 2
+}
