@@ -1,4 +1,3 @@
-
 var languageFull = navigator.language.replace("-","_");
 var languageMain = navigator.language.substring(0,2);
 var languageFallback = "en";
@@ -15,10 +14,6 @@ var customLanguageData = {
 	"ModernDeck Settings":{
 		en:"ModernDeck Settings",
 		es:"Ajustes ModernDeck"
-	},
-	"Add Column":{
-		en:"Add Column",
-		es:"Añadir Columna"
 	},
 	"Sign Out":{
 		en:"Sign Out",
@@ -89,7 +84,7 @@ var languageData = {
 	},
 	"Back":{
 		en:"Back",
-		es:"Volver"
+		es:"Regresar"
 	},
 	"Accessing direct messages":{
 		en:"Accessing direct messages",
@@ -122,7 +117,7 @@ var languageData = {
 	},
 	"Liking and Retweeting":{
 		en:"Liking and Retweeting",
-		es:"Hacer Me Gusta y Retweetear"
+		es:"Hacer Me Gusta y Retwittear"
 	},
 	"Accessing direct message":{
 		en:"Accessing direct message",
@@ -158,7 +153,11 @@ var languageData = {
 	},
 	"Can Tweet and manage team":{
 		en:"Can Tweet and manage team",
-		es:"Puede Tweetear y administrar el equipo"
+		es:"Puede Twittear y administrar el equipo"
+	},
+	"Can Tweet as @{{contributee.getUsername}}":{
+		en:"Can Tweet as @{{contributee.getUsername}}",
+		es:"Puede Twittear como @{{contributee.getUsername}}"
 	},
 	"Contributor":{
 		en:"Contributor",
@@ -174,15 +173,35 @@ var languageData = {
 	},
 	"Retweet":{
 		en:"Retweet",
-		es:"Retweetear"
+		es:"Retwittear"
 	},
 	"Retweet with comment":{
 		en:"Retweet with comment",
-		es:"Retweetear con comentario"
+		es:"Retwittear con comentario"
 	},
 	"Create new list":{
 		en:"Create new list",
 		es:"Crear lista nueva"
+	},
+	"New List":{
+		en:"New List",
+		es:"Lista Nueva"
+	},
+	"Move here":{
+		en:"Move here",
+		es:"Mover aquí"
+	},
+	"New Collection":{
+		en:"New Collection",
+		es:"Colección Nueva"
+	},
+	"Create a new list":{
+		en:"Create a new list",
+		es:"Crear una lista nueva"
+	},
+	"Create a new collection":{
+		en:"Create a new collection",
+		es:"Crear una colección nueva"
 	},
 	"Create list":{
 		en:"Create list",
@@ -230,7 +249,7 @@ var languageData = {
 	},
 	"Liked":{
 		en:"Liked",
-		es:"Te Ha Gustado"
+		es:"Te Gustó"
 	},
 	"Unlike":{
 		en:"Unlike",
@@ -242,7 +261,7 @@ var languageData = {
 	},
 	"Enter Tweet URL":{
 		en:"Enter Tweet URL",
-		es:"Entrar URL de Tweet"
+		es:"Escribir URL de Tweet"
 	},
 	"Filter error":{
 		en:"Filter error",
@@ -415,7 +434,7 @@ var languageData = {
 	},
 	"Tweet":{
 		en:"Tweet",
-		es:"Tweet"
+		es:"Twittear"
 	},
 	"Members of this team can use Twitter as @{{account.screenName}} without knowing the password.":{
 		en:"Members of this team can use Twitter as @{{account.screenName}} without knowing the password.",
@@ -441,6 +460,10 @@ var languageData = {
 		en:"Leave",
 		es:"Abandonar"
 	},
+	"Recent searches":{
+		en:"Recent searches",
+		es:"Búsquedas recientes"
+	},
 	"Set @{{screenName}} as your default account for new Tweets and searches":{
 		en:"Set @{{screenName}} as your default account for new Tweets and searches",
 		es:"Establecer @{{screenName}} como su cuenta predeterminada para nuevos Tweets y búsquedas"
@@ -449,13 +472,13 @@ var languageData = {
 		en:"@{{screenName}} is your default account for new Tweets and searches",
 		es:"@{{screenName}} es tu cuenta predeterminada para nuevos Tweets y búsquedas"
 	},
-	"Default account":{
-		en:"Default account",
+	"Default account":{
+		en:"Default account",
 		es:"Cuenta predeterminada"
 	},
 	"Add a confirmation step before Tweeting as":{
 		en:"Add a confirmation step before Tweeting as",
-		es:"Agregue un paso de confirmación antes de tweetear como"
+		es:"Agregue un paso de confirmación antes de twittear como"
 	},
 	"Confirmation step":{
 		en:"Confirmation step",
@@ -505,6 +528,10 @@ var languageData = {
 		en:"Add column",
 		es:"Añadir columna"
 	},
+	"Add Column":{
+		en:"Add Column",
+		es:"Añadir Columna"
+	},
 	"Add a column":{
 		en:"Add a column",
 		es:"Añadir una columna"
@@ -520,6 +547,10 @@ var languageData = {
 	"Accounts":{
 		en:"Accounts",
 		es:"Cuentas"
+	},
+	"Account":{
+		en:"Account",
+		es:"Cuenta"
 	},
 	"Accounts you can act as":{
 		en:"Accounts you can act as",
@@ -571,11 +602,11 @@ var languageData = {
 	},
 	"Ready to Tweet?":{
 		en:"Ready to Tweet?",
-		es:"¿Listo para Tweetear?"
+		es:"¿Listo para Twittear?"
 	},
 	"Tweet at {{time}}":{
 		en:"Tweet at {{time}}",
-		es:"Tweetear a {{time}}"
+		es:"Twittear a {{time}}"
 	},
 	"This Tweet is unavailable":{
 		en:"This Tweet is unavailable",
@@ -600,6 +631,10 @@ var languageData = {
 	"{{{user}}} followed you":{
 		en:"{{{user}}} followed you",
 		es:"{{{user}}} te siguió"
+	},
+	"{{{user}}} followed":{
+		en:"{{{user}}} followed",
+		es:"{{{user}}} siguió"
 	},
 	"{{{user}}} Retweeted a Tweet you were mentioned in":{
 		en:"{{{user}}} Retweeted a Tweet you were mentioned in",
@@ -733,6 +768,18 @@ var languageData = {
 		en:"Follow",
 		es:"Seguir"
 	},
+	"Unfollow @{{screenName}}":{
+		en:"Unfollow @{{screenName}}",
+		es:"Dejar de Seguir a @{{screenName}}"
+	},
+	"Follow @{{screenName}}":{
+		en:"Follow @{{screenName}}",
+		es:"Seguir a @{{screenName}}"
+	},
+	"Follow from accounts…":{
+		en:"Follow from accounts…",
+		es:"Seguir de las cuentas…"
+	},
 	"From {{#account}}@{{getUsername}}{{/account}}":{
 		en:"From {{#account}}@{{getUsername}}{{/account}}",
 		es:"De {{#account}}@{{getUsername}}{{/account}}"
@@ -751,7 +798,7 @@ var languageData = {
 	},
 	"Follows @{{preferredAccount}}":{
 		en:"Follows @{{preferredAccount}}",
-		es:"Sigue @{{preferredAccount}}"
+		es:"Sigue a @{{preferredAccount}}"
 	},
 	"Translator":{
 		en:"Translator",
@@ -850,6 +897,26 @@ var languageData = {
 	"Mentions":{
 		en:"Mentions",
 		es:"Menciones"
+	},
+	"followers":{
+		en:"followers",
+		es:"seguidores"
+	},
+	"All except followers":{
+		en:"All except followers",
+		es:"Todos excepto seguidores"
+	},
+	"mentions":{
+		en:"mentions",
+		es:"menciones"
+	},
+	"All except Tweets mentioning me":{
+		en:"All except Tweets mentioning me",
+		es:"Todos excepto menciones"
+	},
+	"All except mentions":{
+		en:"All except mentions",
+		es:"Todos excepto menciones"
 	},
 	"Messages":{
 		en:"Messages",
@@ -955,17 +1022,29 @@ var languageData = {
 		en:"Expand/Collapse Navigation",
 		es:"Expandir/Colapsar La Navegación"
 	},
+	"Expand/Collapse navigation":{
+		en:"Expand/Collapse navigation",
+		es:"Expandir/Colapsar La navegación"
+	},
 	"Schedule Tweet":{
 		en:"Schedule Tweet",
 		es:"Programar Tweet"
-	},		
+	},
 	"Add image":{
 		en:"Add image",
 		es:"Añadir imagen"
-	},		
+	},
 	"Add images or video":{
 		en:"Add images or video",
 		es:"Añadir imagenes o video"
+	},
+	"Add images":{
+		en:"Add images",
+		es:"Añadir imagenes"
+	},
+	"Add image or video":{
+		en:"Add image or video",
+		es:"Añadir imagen o video"
 	},
 	"To":{
 		en:"To",
@@ -978,6 +1057,10 @@ var languageData = {
 	"Direct message":{
 		en:"Direct message",
 		es:"Mensaje directo"
+	},
+	"Send a Direct Message":{
+		en:"Send a Direct Message",
+		es:"Enviar un Mensaje Directo"
 	},
 	"Stay open":{
 		en:"Stay open",
@@ -1025,7 +1108,7 @@ var languageData = {
 	"{{plural_number}}d":{
 		en:"{{plural_number}}d",
 		es:"{{plural_number}}d"
-	},		
+	},	
 	"{{plural_number}}h":{
 		en:"{{plural_number}}h",
 		es:"{{plural_number}}h"
@@ -1041,7 +1124,7 @@ var languageData = {
 	"{{plural_number}} days left":{
 		en:"{{plural_number}} days left",
 		es:"{{plural_number}} days left"
-	},		
+	},	
 	"{{plural_number}} hours left":{
 		en:"{{plural_number}} hours left",
 		es:"{{plural_number}} hours left"
@@ -1057,7 +1140,7 @@ var languageData = {
 	"{{plural_number}} days ago":{
 		en:"{{plural_number}} days ago",
 		es:"{{plural_number}} days ago"
-	},		
+	},	
 	"{{plural_number}} hours ago":{
 		en:"{{plural_number}} hours ago",
 		es:"{{plural_number}} hours ago"
@@ -1073,7 +1156,7 @@ var languageData = {
 	"{{one}} day left":{
 		en:"{{one}} day left",
 		es:"{{one}} day left"
-	},		
+	},	
 	"{{one}} hour left":{
 		en:"{{one}} hour left",
 		es:"{{one}} hour left"
@@ -1089,7 +1172,7 @@ var languageData = {
 	"{{one}} day ago":{
 		en:"{{one}} day ago",
 		es:"{{one}} day ago"
-	},		
+	},	
 	"{{one}} hour ago":{
 		en:"{{one}} hour ago",
 		es:"{{one}} hour ago"
@@ -1105,7 +1188,7 @@ var languageData = {
 	"{{one}}d":{
 		en:"{{one}}d",
 		es:"{{one}}d"
-	},		
+	},	
 	"{{one}}h":{
 		en:"{{one}}h",
 		es:"{{one}}h"
@@ -1146,6 +1229,22 @@ var languageData = {
 		en:"Loading...",
 		es:"Cargando..."
 	},
+	"Loading":{
+		en:"Loading",
+		es:"Cargando"
+	},
+	"Updating":{
+		en:"Updating",
+		es:"Actualizando"
+	},
+	"}}Loading":{
+		en:"}}Loading",
+		es:"}}Cargando"
+	},
+	"}}Updating":{
+		en:"}}Updating",
+		es:"}}Actualizando"
+	},
 	"Loading…":{
 		en:"Loading…",
 		es:"Cargando…"
@@ -1154,9 +1253,13 @@ var languageData = {
 		en:"added you",
 		es:"te agregó"
 	},
+	"Users added successfully":{
+		en:"Users added successfully",
+		es:"Usuarios agregados con éxito"
+	},
 	" Retweeted":{
 		en:" Retweeted",
-		es:" Retweeteado"
+		es:" Retwitteado"
 	},
 	"Always show me sensitive media":{
 		en:"Always show me sensitive media",
@@ -1204,11 +1307,15 @@ var languageData = {
 	},
 	"Enter a word or phrase":{
 		en:"Enter a word or phrase",
-		es:"Entrar una palabra o frase"
+		es:"Escribir una palabra o frase"
 	},
 	"Mute":{
 		en:"Mute",
 		es:"Silenciar"
+	},
+	"Type in a location":{
+		en:"Type in a location",
+		es:"Escribir una ubicación"
 	},
 	"Words or phrases":{
 		en:"Words or phrases",
@@ -1322,6 +1429,10 @@ var languageData = {
 		en:"Translate Tweet",
 		es:"Traducir Tweet"
 	},
+	"Translate this Tweet":{
+		en:"Translate this Tweet",
+		es:"Traducir este Tweet"
+	},
 	"Flagged (learn more)":{
 		en:"Flagged (learn more)",
 		es:"Marcado (aprender más)"
@@ -1329,6 +1440,10 @@ var languageData = {
 	"Flag media":{
 		en:"Flag media",
 		es:"Marcar medio"
+	},
+	"Flag message":{
+		en:"Flag message",
+		es:"Marcar mensaje"
 	},
 	"Final results":{
 		en:"Final results",
@@ -1350,6 +1465,22 @@ var languageData = {
 		en:"Drag to collection",
 		es:"Arrastre a colección"
 	},
+	"Drag Tweets into this collection":{
+		en:"Drag Tweets into this collection",
+		es:"Arrastre Tweets a esta colección"
+	},
+	"Delete collection":{
+		en:"Delete collection",
+		es:"Eliminar colección"
+	},
+	"Add to collection":{
+		en:"Add to collection",
+		es:"Añadir a colección"
+	},
+	"Add to collection…":{
+		en:"Add to collection…",
+		es:"Añadir a colección…"
+	},
 	"1 more reply":{
 		en:"1 more reply",
 		es:"1 respuesta más"
@@ -1370,9 +1501,21 @@ var languageData = {
 		en:"Retweets",
 		es:"Retweets"
 	},
+	"All except Retweets":{
+		en:"All except Retweets",
+		es:"Todos excepto Retweets"
+	},
 	"Likes":{
 		en:"Likes",
 		es:"Me gusta"
+	},
+	"All except likes":{
+		en:"All except likes",
+		es:"Todos excepto me gusta"
+	},
+	"likes":{
+		en:"likes",
+		es:"me gusta"
 	},
 	"Show this thread":{
 		en:"Show this thread",
@@ -1389,6 +1532,10 @@ var languageData = {
 	"user name":{
 		en:"user name",
 		es:"nombre de usuario"
+	},
+	"Name":{
+		en:"Name",
+		es:"Nombre"
 	},
 	"me…":{
 		en:"me…",
@@ -1434,6 +1581,10 @@ var languageData = {
 		en:"excluded",
 		es:"excluido"
 	},
+	"Retweets excluded":{
+		en:"Retweets excluded",
+		es:"Retweets excluido"
+	},
 	"all Tweets":{
 		en:"all Tweets",
 		es:"todos Tweets"
@@ -1449,10 +1600,6 @@ var languageData = {
 	"Clear column":{
 		en:"Clear column",
 		es:"Aclarar columna"
-	},
-	"Delete collection":{
-		en:"Delete collection",
-		es:"Eliminar colección"
 	},
 	"Right":{
 		en:"Right",
@@ -1474,36 +1621,1027 @@ var languageData = {
 		en:"Update TweetDeck",
 		es:"Actualizar TweetDeck"
 	},
+	"Actions":{
+		en:"Actions",
+		es:"Acciones"
+	},
+	"Actions on my Retweets":{
+		en:"Actions on my Retweets",
+		es:"Acciones en mis Retweets"
+	},
+	"actions on my Retweets":{
+		en:"actions on my Retweets",
+		es:"acciones en mis Retweets"
+	},
+	"All except actions on my Retweets":{
+		en:"All except actions on my Retweets",
+		es:"Todos excepto acciones en mis Retweets"
+	},
+	"Actions on Tweets I'm mentioned in":{
+		en:"Actions on Tweets I'm mentioned in",
+		es:"Acciones en Tweets Me mencionaron en"
+	},
+	"Actions on Tweets I'm tagged in":{
+		en:"Actions on Tweets I'm tagged in",
+		es:"Acciones en los Tweets estoy etiquetado"
+	},
+	"View user profile":{
+		en:"View user profile",
+		es:"Ver perfil de usario"
+	},
+	"View Tweet Details":{
+		en:"View Tweet Details",
+		es:"Ver Detalles de Tweet"
+	},
+	"Close Tweet Details":{
+		en:"Close Tweet Details",
+		es:"Cerrar Detalles de Tweet"
+	},
+	"List Details":{
+		en:"List Details",
+		es:"Detalles de Lista"
+	},
+	"Edit Details":{
+		en:"Edit Details",
+		es:"Editar Detalles"
+	},
+	"Edit list details":{
+		en:"Edit list details",
+		es:"Editar detalles de lista"
+	},
+	"Send Tweet":{
+		en:"Send Tweet",
+		es:"Enviar Tweet"
+	},
+	"Send message":{
+		en:"Send message",
+		es:"Enviar mensaje"
+	},
+	"Command Palette — <b>NEW!</b>":{
+		en:"Command Palette — <b>NEW!</b>",
+		es:"Paleta de comandos — <b>NUEVA!</b>"
+	},
+	"Enter":{
+		en:"Enter",
+		es:"Intro"
+	},
+	"Backspace":{
+		en:"Backspace",
+		es:"Retroceso"
+	},
+	"This menu":{
+		en:"This menu",
+		es:"Este menú"
+	},
+	"Up":{
+		en:"Up",
+		es:"Arriba"
+	},
+	"Down":{
+		en:"Down",
+		es:"Abajo"
+	},
+	"Navigation":{
+		en:"Navigation",
+		es:"Navegación"
+	},
+	"Column 1－9":{
+		en:"Column 1－9",
+		es:"Columna 1－9"
+	},
+	"Final column":{
+		en:"Final column",
+		es:"Columna final"
+	},
+	"ERROR_ACCOUNT_DOESNT_EXIST":{
+		en:"Account does not exist.",
+		es:"La cuenta no existe."
+	},
+	"ERROR_BAD_PASSWORD":{
+		en:"Incorrect password.",
+		es:"Contraseña incorrecta."
+	},
+	"ERROR_RATE_LIMIT_EXCEEDED":{
+		en:"You have exceeded the API rate limit.",
+		es:"Has excedido el límite de la tasa API."
+	},
+	"ERROR_SESSION_EXPIRED":{
+		en:"Your session has expired.",
+		es:"Tu sesión ha caducado."
+	},
+	"Ctrl":{
+		en:"Ctrl",
+		es:"Ctrl"
+	},
+	"Add another Tweet":{
+		en:"Add another Tweet",
+		es:"Añadir otro Tweet"
+	},
+	"Tweet your reply":{
+		en:"Tweet your reply",
+		es:"Twittear tu respuesta"
+	},
+	"Find tweets...":{
+		en:"Find tweets...",
+		es:"Encontrar tweets..."
+	},
+	"No users found.":{
+		en:"No users found.",
+		es:"No se encontraron usuarios."
+	},
+	"Get started":{
+		en:"Get started",
+		es:"Empezar"
+	},
+	"Manage multiple accounts":{
+		en:"Manage multiple accounts",
+		es:"Administra cuentas múltiples"
+	},
+	"Create searches to track topics, events and hashtags. Refine the results with filters at the top of each timeline.":{
+		en:"Create searches to track topics, events and hashtags. Refine the results with filters at the top of each timeline.",
+		es:"Crea búsquedas para rastrear temas, eventos y hashtags. Refine los resultados con filtros en la parte superior de cada línea de tiempo."
+	},
+	"Find exactly what you&rsquo;re looking for":{
+		en:"Find exactly what you&rsquo;re looking for",
+		es:"Encuentra exactamente lo que estás buscando"
+	},
+	"Create a custom Twitter experience":{
+		en:"Create a custom Twitter experience",
+		es:"Crear una experiencia de Twitter personalizada"
+	},
+	"Organize and build collections, keep track of lists, searches, activity and more. Click the + in the sidebar.":{
+		en:"Organize and build collections, keep track of lists, searches, activity and more. Click the + in the sidebar.",
+		es:"Organice y cree colecciones, realice un seguimiento de listas, búsquedas, actividades y más. Haga clic en + en la barra lateral."
+	},
+	"Welcome to TweetDeck":{
+		en:"Welcome to TweetDeck",
+		es:"Bienvenidos a TweetDeck"
+	},
+	"Unable to add or move that Tweet":{
+		en:"Unable to add or move that Tweet",
+		es:"No se puede añadir o mover ese tweet"
+	},
+	"Can't recognize Tweet URL":{
+		en:"Can't recognize Tweet URL",
+		es:"No se puede reconocer la URL de Tweet"
+	},
+	"Tweet like a pro.":{
+		en:"Tweet like a pro.",
+		es:"Twittear como un profesional."
+	},
+	"Sign up now":{
+		en:"Sign up now",
+		es:"Regístrate ahora"
+	},
+	"New to Twitter?":{
+		en:"New to Twitter?",
+		es:"¿Eres nuevo en Twitter?"
+	},
+	"Log in with your Twitter account":{
+		en:"Log in with your Twitter account",
+		es:"Iniciar sesión con tu cuenta de Twitter"
+	},
+	"The most powerful Twitter tool for real-time tracking, organizing, and engagement. Reach your audiences and discover the best of Twitter.":{
+		en:"The most powerful Twitter tool for real-time tracking, organizing, and engagement. Reach your audiences and discover the best of Twitter.",
+		es:"La herramienta de Twitter más poderosa para el seguimiento, organización e interacción en tiempo real. Llegue a tu audiencia y descubres lo mejor de Twitter."
+	},
+	"Sorry, something went wrong. Please try again later.":{
+		en:"Sorry, something went wrong. Please try again later.",
+		es:"Perdón, algo salió mal. Por favor, inténtelo de nuevo más tarde."
+	},
+	" is below. Copy it to share with colleagues and friends.":{
+		en:" is below. Copy it to share with colleagues and friends.",
+		es:" esta abajo. Cópialo para compartirlo con colegas y amigos."
+	},
+	"The list of users in ":{
+		en:"The list of users in ",
+		es:"La lista de usuarios en "
+	},
+	"Are you sure you want to delete this list?":{
+		en:"Are you sure you want to delete this list?",
+		es:"¿Seguro que quieres eliminar esta lista?"
+	},
+	"Are you sure you want to delete this collection?":{
+		en:"Are you sure you want to delete this collection?",
+		es:"¿Seguro que quieres eliminar esta colección?"
+	},
+	"Deleting list!":{
+		en:"Deleting list!",
+		es:"¡Eliminando la Lista!"
+	},
+	"{{{owner}}} added you to their list {{{list}}}":{
+		en:"{{{owner}}} added you to their list {{{list}}}",
+		es:"{{{owner}}} te ha agregado a su lista {{{list}}}"
+	},
+	"{{{owner}}} added {{{added}}} to their list {{{list}}}":{
+		en:"{{{owner}}} added {{{added}}} to their list {{{list}}}",
+		es:"{{{owner}}} ha agregado {{{added}}} a su lista {{{list}}}"
+	},
+	"{{{owner}}} created the list {{{list}}}":{
+		en:"{{{owner}}} created the list {{{list}}}",
+		es:"{{{owner}}} ha creado la lista {{{list}}}"
+	},
+	"Add users to list":{
+		en:"Add users to list",
+		es:"Añadir usarios a lista"
+	},
+	"← Back":{
+		en:"← Back",
+		es:"← Regresar"
+	},
+	"You can add the @usernames one per line, or they can be separated by spaces, commas or tabs.":{
+		en:"You can add the @usernames one per line, or they can be separated by spaces, commas or tabs.",
+		es:"Puedes añadir los @nombres uno por línea, o pueden estar separados por espacios, comas o pestañas."
+	},
+	"You can add up to 100 members to a list at a time.":{
+		en:"You can add up to 100 members to a list at a time.",
+		es:"Puedes añadir hasta 100 miembros a una lista a la vez."
+	},
+	"Enter the @usernames of the people you would like to add to this list.":{
+		en:"Enter the @usernames of the people you would like to add to this list.",
+		es:"Escribir los @nombres del pueblo que te gustaría añadir a esta lista."
+	},
+	"Export list":{
+		en:"Export list",
+		es:"Exportar lista"
+	},
+	"Delete list":{
+		en:"Delete list",
+		es:"Elimimar lista"
+	},
+	"Members":{
+		en:"Members",
+		es:"Miembros"
+	},
+	"Loading list members…":{
+		en:"Loading list members…",
+		es:"Cargando miembros de lista…"
+	},
+	"Suggested":{
+		en:"Suggested",
+		es:"Sugerido"
+	},
+	"Under 100 characters, optional":{
+		en:"Under 100 characters, optional",
+		es:"Menos de 100 caracteres, opcional"
+	},
+	"Under 160 characters, optional":{
+		en:"Under 160 characters, optional",
+		es:"Menos de 160 caracteres, opcional"
+	},
+	"Save":{
+		en:"Save",
+		es:"Guardar"
+	},
+	"only visible to the owner":{
+		en:"only visible to the owner",
+		es:"solo visible para el dueño"
+	},
+	"Private":{
+		en:"Private",
+		es:"Privado"
+	},
+	"anyone can view":{
+		en:"anyone can view",
+		es:"cualquiera puede ver"
+	},
+	"Public":{
+		en:"Public",
+		es:"Pública"
+	},
+	"Privacy":{
+		en:"Privacy",
+		es:"Privacidad"
+	},
+	"Description":{
+		en:"Description",
+		es:"Descripción"
+	},
+	"Tailored":{
+		en:"Tailored",
+		es:"Adaptado"
+	},
+	"Regions":{
+		en:"Regions",
+		es:"Regiones"
+	},
+	"City":{
+		en:"City",
+		es:"Ciudad"
+	},
+	"Worldwide":{
+		en:"Worldwide",
+		es:"Mundial"
+	},
+	"All cities":{
+		en:"All cities",
+		es:"Todas ciudades"
+	},
+	" {{>text/open_strong}}Create Moment{{>text/close_strong}} ":{
+		en:" {{>text/open_strong}}Create Moment{{>text/close_strong}} ",
+		es:" {{>text/open_strong}}Crear Momento{{>text/close_strong}} "
+	},
+	" {{>text/open_strong}}Tweet{{>text/close_strong}} about this {{#isCustomTimeline}} collection {{/isCustomTimeline}} {{^isCustomTimeline}} timeline {{/isCustomTimeline}} ":{
+		en:" {{>text/open_strong}}Tweet{{>text/close_strong}} about this {{#isCustomTimeline}} collection {{/isCustomTimeline}} {{^isCustomTimeline}} timeline {{/isCustomTimeline}} ",
+		es:" {{>text/open_strong}}Twittear{{>text/close_strong}} sobre {{#isCustomTimeline}} collección {{/isCustomTimeline}} {{^isCustomTimeline}} timeline {{/isCustomTimeline}} "
+	},
+	"{{>text/open_strong}}View{{>text/close_strong}} on twitter.com":{
+		en:"{{>text/open_strong}}View{{>text/close_strong}} on twitter.com",
+		es:"{{>text/open_strong}}Ver{{>text/close_strong}} en twitter.com"
+	},
+	"{{>text/open_strong}}Copy{{>text/close_strong}} search query":{
+		en:"{{>text/open_strong}}Copy{{>text/close_strong}} search query",
+		es:"{{>text/open_strong}}Copiar{{>text/close_strong}} consulta de busqueda"
+	},
+	" {{>text/open_strong}}Embed{{>text/close_strong}} {{#isCustomTimeline}} collection {{/isCustomTimeline}} {{^isCustomTimeline}} timeline {{/isCustomTimeline}} ":{
+		en:" {{>text/open_strong}}Embed{{>text/close_strong}} {{#isCustomTimeline}} collection {{/isCustomTimeline}} {{^isCustomTimeline}} timeline {{/isCustomTimeline}} ",
+		es:" {{>text/open_strong}}Integrar{{>text/close_strong}} {{#isCustomTimeline}} la collección {{/isCustomTimeline}} {{^isCustomTimeline}} linea de tiempo {{/isCustomTimeline}} "
+	},
+	"Image attached":{
+		en:"Image attached",
+		es:"Imagen adjunta"
+	},
+	"replies":{
+		en:"replies",
+		es:"respuestas"
+	},
+	"At least":{
+		en:"At least",
+		es:"Al menos"
+	},
+	"at least":{
+		en:"at least",
+		es:"al menos"
+	},
+	"and at least":{
+		en:"and at least",
+		es:"y al menos"
+	},
+	"members of list…":{
+		en:"members of list…",
+		es:"miembros de lista…"
+	},
+	"Radius":{
+		en:"Radius",
+		es:"Radio"
+	},
+	"Tweets geo-tagged near":{
+		en:"Tweets geo-tagged near",
+		es:"Tweets geo-etiquetados cerca"
+	},
+	"select date":{
+		en:"select date",
+		es:"seleccione fecha"
+	},
+	"Engagements":{
+		en:"Engagements",
+		es:"Interacciones"
+	},
+	"Engagement":{
+		en:"Engagement",
+		es:"Interacción"
+	},
+	"Location":{
+		en:"Location",
+		es:"Ubicación"
+	},
+	"by users I follow":{
+		en:"by users I follow",
+		es:"por usuarios que sigo"
+	},
+	"All except Tweets tagging me":{
+		en:"All except Tweets tagging me",
+		es:"Todos excepto tweets que me etiquetan"
+	},
+	"Update your preferences on Twitter.com":{
+		en:"Update your preferences on Twitter.com",
+		es:"Actualice sus preferencias en Twitter.com"
+	},
+	"Improves the quality of Tweets you'll see.":{
+		en:"Improves the quality of Tweets you'll see.",
+		es:"Mejora la calidad de los Tweets que verás."
+	},
+	"Update your preferences on Twitter.com":{
+		en:"Update your preferences on Twitter.com",
+		es:"Actualice tus preferencias en Twitter.com"
+	},
+	"These filters will not affect notifications from people you follow.":{
+		en:"These filters will not affect notifications from people you follow.",
+		es:"Estos filtros no afectarán las notificaciones de las personas que sigues."
+	},
+	"Hiding notifications from users:":{
+		en:"Hiding notifications from users:",
+		es:"Ocultar las notificaciones de los usuarios:"
+	},
+	"Please select at least one interaction type":{
+		en:"Please select at least one interaction type",
+		es:"Favor seleccione al menos un tipo de interacción"
+	},
+	"users I follow":{
+		en:"users I follow",
+		es:"usuarios que sigo"
+	},
+	"Notification types":{
+		en:"Notification types",
+		es:"Tipos de notificaciones"
+	},
+	"Scheduled Tweets cannot contain multiple images":{
+		en:"Scheduled Tweets cannot contain multiple images",
+		es:"Los tweets programados no pueden contener imágenes múltiples"
+	},
+	"Scheduled Tweets cannot contain video":{
+		en:"Scheduled Tweets cannot contain video",
+		es:"Los tweets programados no pueden contener video"
+	},
+	"Direct messages cannot contain video":{
+		en:"Direct messages cannot contain video",
+		es:"Los mensajes directos no pueden contener video"
+	},
+	"Direct messages cannot be scheduled":{
+		en:"Direct messages cannot be scheduled",
+		es:"Los mensajes directos no pueden programarse"
+	},
+	"Direct messages cannot contain multiple images":{
+		en:"Direct messages cannot contain multiple images",
+		es:"Los mensajes directos no pueden contener múltiples imágenes"
+	},
+	"Quoted Tweets cannot contain images":{
+		en:"Quoted Tweets cannot contain images",
+		es:"Los tweets citados no pueden contener imágenes"
+	},
+	"Quoted Tweets":{
+		en:"Quoted Tweets",
+		es:"Tweets citados"
+	},
+	"quoted Tweets":{
+		en:"quoted Tweets",
+		es:"tweets citados"
+	},
+	"All except quoted Tweets":{
+		en:"All except quoted Tweets",
+		es:"Todos excepto tweets citados"
+	},
+	"You cannot add more than {{max}} images":{
+		en:"You cannot add more than {{max}} images",
+		es:"No puedes añadir más que {{max}} imagenes"
+	},
+	"You cannot add more than 1 image to a scheduled Tweet":{
+		en:"You cannot add more than 1 image to a scheduled Tweet",
+		es:"No puedes añadir más que 1 imagen a un Tweet programado"
+	},
+	"You cannot add more than 1 image to a message":{
+		en:"You cannot add more than 1 image to a message",
+		es:"No puedes añadir más que 1 imagen a un mensaje"
+	},
+	"You cannot add more than 1 image or video to a scheduled Tweet":{
+		en:"You cannot add more than 1 image or video to a scheduled Tweet",
+		es:"No puedes añadir más que 1 imagen o video a un Tweet programado"
+	},
+	"You cannot upload a Video with other images":{
+		en:"You cannot upload a Video with other images",
+		es:"No puedes subir un Video con otras imágenes"
+	},
+	"You cannot upload a GIF with other images":{
+		en:"You cannot upload a GIF with other images",
+		es:"No puedes subir un GIF con otras imágenes"
+	},
+	"Add another image":{
+		en:"Add another image",
+		es:"Añadir otra imagen"
+	},
+	"Processing media":{
+		en:"Processing media",
+		es:"Procesando los medios"
+	},
+	"Uploading media":{
+		en:"Uploading media",
+		es:"Subiendo los medios"
+	},
+	"You have to check the confirmation step to Tweet":{
+		en:"You have to check the confirmation step to Tweet",
+		es:"Tienes que verificar el paso de confirmación para Twittear"
+	},
+	"Scheduled time has passed":{
+		en:"Scheduled time has passed",
+		es:"El tiempo programado ha pasado"
+	},
+	"You have to select a recipient for your message":{
+		en:"You have to select a recipient for your message",
+		es:"Debes seleccionar un recibidor para tu mensaje"
+	},
+	"You have to select at least one account to Tweet from":{
+		en:"You have to select at least one account to Tweet from",
+		es:"Debes seleccionar al menos una cuenta para Twittear"
+	},
+	"Your Tweet is too long":{
+		en:"Your Tweet is too long",
+		es:"Tu Tweet es demasiado largo"
+	},
+	"That didn't work. Try copying the link from the field.":{
+		en:"That didn't work. Try copying the link from the field.",
+		es:"Eso no funcionó. Intenta copiar el enlace desde el campo."
+	},
+	"That didn't work. Try copying the text from the field.":{
+		en:"That didn't work. Try copying the text from the field.",
+		es:"Eso no funcionó. Intenta copiar el texto desde el campo."
+	},
+	"Copy":{
+		en:"Copy",
+		es:"Copiar"
+	},
+	"Link copied to clipboard":{
+		en:"Link copied to clipboard",
+		es:"Enlace copiado al portapapeles"
+	},
+	"Copy users in this list":{
+		en:"Copy users in this list",
+		es:"Copiar usarios en esta lista"
+	},
+	"Text copied to clipboard":{
+		en:"Text copied to clipboard",
+		es:"Texto copiado al portapapeles"
+	},
+	"URL":{
+		en:"URL",
+		es:"URL"
+	},
+	"Copy link":{
+		en:"Copy link",
+		es:"Copiar enlace"
+	},
+	"Copy list":{
+		en:"Copy list",
+		es:"Copiar lista"
+	},
+	"The URL of this Tweet is below.  Copy to easily share with colleagues and friends.":{
+		en:"The URL of this Tweet is below.  Copy to easily share with colleagues and friends.",
+		es:"La URL de este Tweet está debajo. Cópialo para compartir fácilmente con colegas y amigos."
+	},
+	"Profile Account":{
+		en:"Profile Account",
+		es:"Cuenta de Perfil"
+	},
+	"Search results":{
+		en:"Search results",
+		es:"Resultados de la búsqueda"
+	},
+	"match that name":{
+		en:"match that name",
+		es:"coincidir ese nombre"
+	},
+	"Preview":{
+		en:"Preview",
+		es:"Previsualizar"
+	},
+	"Include media":{
+		en:"Include media",
+		es:"Incluir medio"
+	},
+	"Developer Agreement":{
+		en:"Developer Agreement",
+		es:"Acuerdo de Desarrollador"
+	},
+	"Developer Policy":{
+		en:"Developer Policy",
+		es:"Política de Desarrollador"
+	},
+	"By embedding Twitter content in your website or app, you are agreeing to the":{
+		en:"By embedding Twitter content in your website or app, you are agreeing to the",
+		es:"Al integrar el contenido de Twitter en tu sitio web o aplicación, tú aceptas el"
+	},
+	"Include parent Tweet":{
+		en:"Include parent Tweet",
+		es:"Incluir el tweet al que se respondió"
+	},
+	"about embedded Tweets.":{
+		en:"about embedded Tweets.",
+		es:"sobre Tweets integrados."
+	},
+	"Add this Tweet to your website by copying the code below. If your CMS supports it, you can just paste in the link.":{
+		en:"Add this Tweet to your website by copying the code below. If your CMS supports it, you can just paste in the link.",
+		es:"Agregue este Tweet a tu sitio web por copiando el código debajo. Si tu CMS lo admite, puedes simplemente pegar el enlace."
+	},
+	"Like this Tweet from":{
+		en:"Like this Tweet from",
+		es:"Hacer Me Gusta a este Tweet de"
+	},
+	"Popout":{
+		en:"Popout",
+		es:"Salir"
+	},
+	"New message":{
+		en:"New message",
+		es:"Nuevo mensaje"
+	},
+	"Message":{
+		en:"Message",
+		es:"Mensaje"
+	},
+	"more":{
+		en:"more",
+		es:"más"
+	},
+	"and":{
+		en:"and",
+		es:"y"
+	},
+	"Followed by":{
+		en:"Followed by",
+		es:"Siguió por"
+	},
+	"You can't upload a GIF with other images.":{
+		en:"You can't upload a GIF with other images.",
+		es:"No puedes subir un GIF con otras imágenes."
+	},
+	"You can only include one video in a Tweet.":{
+		en:"You can only include one video in a Tweet.",
+		es:"Solo puedes incluir un video en un Tweet."
+	},
+	"You can't Tweet videos and images at the same time.":{
+		en:"You can't Tweet videos and images at the same time.",
+		es:"No puedes Twittear videos e imágenes al mismo tiempo."
+	},
+	"Translated from {{localizedLanguageName}} by {{>text/microsoft_translator_link}}":{
+		en:"Translated from {{localizedLanguageName}} by {{>text/microsoft_translator_link}}",
+		es:"Traducido de {{localizedLanguageName}} por {{>text/microsoft_translator_link}}"
+	},
+	"Version":{
+		en:"Version",
+		es:"Versión"
+	},
+	"Sent via TweetDeck":{
+		en:"Sent via TweetDeck",
+		es:"Enviado vía TweetDeck"
+	},
+	"Show more":{
+		en:"Show more",
+		es:"Mostrar más"
+	},
+	"source":{
+		en:"source",
+		es:"fuente"
+	},
+	"eg TweetSpamApp":{
+		en:"eg TweetSpamApp",
+		es:"eg AplicacióndeSpam"
+	},
+	"Muting {{getDisplayType}} {{>text/global_filter_value}}":{
+		en:"Muting {{getDisplayType}} {{>text/global_filter_value}}",
+		es:"Silenciando {{getDisplayType}} {{>text/global_filter_value}}"
+	},
+	"Translated by {{>text/microsoft_translator_link}}":{
+		en:"Translated by {{>text/microsoft_translator_link}}",
+		es:"Traducido por {{>text/microsoft_translator_link}}"
+	},
+	"One selected file is not an image.":{
+		en:"One selected file is not an image.",
+		es:"Un archivo seleccionado no es una imagen."
+	},
+	"showing images":{
+		en:"showing images",
+		es:"mostrando imágenes"
+	},
+	"showing videos":{
+		en:"showing videos",
+		es:"mostrando videos"
+	},
+	"showing GIFs":{
+		en:"showing GIFs",
+		es:"mostrando GIFs"
+	},
+	"showing links":{
+		en:"showing links",
+		es:"mostrando enlaces"
+	},
+	"showing images and videos":{
+		en:"showing images and videos",
+		es:"mostrando imágenes y videos"
+	},
+	"Or add by URL":{
+		en:"Or add by URL",
+		es:"O añadir por URL"
+	},
+	"New Tweets will appear here.":{
+		en:"New Tweets will appear here.",
+		es:"Nuevos Tweets aparecerán aquí."
+	},
+	"No recent Tweets.":{
+		en:"No recent Tweets.",
+		es:"No hay Tweets recientes."
+	},
+	"by verified users":{
+		en:"by verified users",
+		es:"por usarios verificados"
+	},
+	"all users":{
+		en:"all users",
+		es:"todos usarios"
+	},
+	" Your notification settings on <a rel=\"url noopener noreferrer\" target=\"_blank\" href=\"https://twitter.com/settings/notifications_timeline\">Twitter.com</a> may be affecting the mentions you see here ":{
+		en:" Your notification settings on <a rel=\"url noopener noreferrer\" target=\"_blank\" href=\"https://twitter.com/settings/notifications_timeline\">Twitter.com</a> may be affecting the mentions you see here ",
+		es:" Tus preferencias de notificación en <a rel=\"url noopener noreferrer\" target=\"_blank\" href=\"https://twitter.com/settings/notifications_timeline\">Twitter.com</a> pueden estar afectando las menciones que ves aquí "
+	},
+	"Large media":{
+		en:"Large media",
+		es:"Medios grandes"
+	},
+	"Medium media":{
+		en:"Medium media",
+		es:"Medios medianos"
+	},
+	"Small media":{
+		en:"Small media",
+		es:"Medios pequeños"
+	},
+	"Media preview size":{
+		en:"Media preview size",
+		es:"Tamaño de vista previa del medio"
+	},
+	"Hidden":{
+		en:"Hidden",
+		es:"Oculto"
+	},
+	"Media hidden":{
+		en:"Media hidden",
+		es:"Medios escondidos"
+	},
+	"Enable sound":{
+		en:"Enable sound",
+		es:"Permitir sonido"
+	},
+	"Sounds":{
+		en:"Sounds",
+		es:"Sonidos"
+	},
+	"Sounds and desktop notifications":{
+		en:"Sounds and desktop notifications",
+		es:"Sonidos y notificaciones de escritorio"
+	},
+	"Enable desktop notifications":{
+		en:"Enable desktop notifications",
+		es:"Permitir notificaciones de escritorio"
+	},
+	"Desktop notifications":{
+		en:"Desktop notifications",
+		es:"Notificaciones de escritorio"
+	},
+	"Mentioning":{
+		en:"Mentioning",
+		es:"Mencionando"
+	},
+	"verified users":{
+		en:"verified users",
+		es:"usarios verificados"
+	},
+	"any language":{
+		en:"any language",
+		es:"cualquier idioma"
+	},
+	"Written in":{
+		en:"Written in",
+		es:"Escrito en"
+	},
+	"Excluding":{
+		en:"Excluding",
+		es:"Excluyendo"
+	},
+	"Showing":{
+		en:"Showing",
+		es:"Mirando"
+	},
+	"No":{
+		en:"No",
+		es:"No"
+	},
+	"Enter words to exclude":{
+		en:"Enter words to exclude",
+		es:"Escribir las palabras para excluir"
+	},
+	"Enter a @name or full name":{
+		en:"Enter a @name or full name",
+		es:"Escribir un @nombre o nombre completo"
+	},
+	"Enter words to match":{
+		en:"Enter words to match",
+		es:"Escribir las palabras para coincidir"
+	},
+	"Share":{
+		en:"Share",
+		es:"Compartir"
+	},
+	"Clear":{
+		en:"Clear",
+		es:"Aclarar"
+	},
+	"Dataminr settings":{
+		en:"Dataminr settings",
+		es:"Ajustes Dataminr"
+	},
+	"Edit collection":{
+		en:"Edit collection",
+		es:"Editar la colección"
+	},
+	"Edit list":{
+		en:"Edit list",
+		es:"Editar la lista"
+	},
+	"Lists":{
+		en:"Lists",
+		es:"Listas"
+	},
+	"Subscribed to":{
+		en:"Subscribed to",
+		es:"Suscrito a"
+	},
+	"Your lists":{
+		en:"Your lists",
+		es:"Tus listas"
+	},
+	"Your collections":{
+		en:"Your collections",
+		es:"Tus collecciones"
+	},
+	"collections":{
+		en:"collections",
+		es:"collecciones"
+	},
+	"Create collections":{
+		en:"Create collections",
+		es:"Crear collecciones"
+	},
+	"Create collection":{
+		en:"Create collection",
+		es:"Crear collección"
+	},
+	"lists":{
+		en:"lists",
+		es:"listas"
+	},
+	"All except lists":{
+		en:"All except lists",
+		es:"Todos excepto listas"
+	},
+	"Traducido del {{localizedLanguageName}} por {{>text/microsoft_translator_link}}":{
+		en:"Traducido del {{localizedLanguageName}} por {{>text/microsoft_translator_link}}",
+		es:"Traducido del {{localizedLanguageName}} por {{>text/microsoft_translator_link}}"
+	},
+	"Undo Retweet":{
+		en:"Undo Retweet",
+		es:"Deshacer el Retweet"
+	},
+	"Report Tweet":{
+		en:"Report Tweet",
+		es:"Reportar Tweet"
+	},
+	"Report @{{screenName}}":{
+		en:"Report @{{screenName}}",
+		es:"Reportar @{{screenName}}"
+	},
+	"Block @{{screenName}}":{
+		en:"Block @{{screenName}}",
+		es:"Bloquear @{{screenName}}"
+	},
+	"Unmute @{{screenName}}":{
+		en:"Unmute @{{screenName}}",
+		es:"Dejar de silenciar @{{screenName}}"
+	},
+	"Mute @{{screenName}}":{
+		en:"Mute @{{screenName}}",
+		es:"Silenciar @{{screenName}}"
+	},
+	"Unmute this conversation":{
+		en:"Unmute this conversation",
+		es:"Dejar de silenciar esta conversación"
+	},
+	"Mute this conversation":{
+		en:"Mute this conversation",
+		es:"Silenciar esta conversación"
+	},
+	"See who quoted this Tweet":{
+		en:"See who quoted this Tweet",
+		es:"Ver quién citó este Tweet"
+	},
+	"Add or remove from lists…":{
+		en:"Add or remove from lists…",
+		es:"Añadir o eliminar de listas…"
+	},
+	"Like from accounts…":{
+		en:"Like from accounts…",
+		es:"Me Gusta de las cuentas…"
+	},
+	"Tweet to @{{screenName}}":{
+		en:"Tweet to @{{screenName}}",
+		es:"Twittear a @{{screenName}}"
+	},
+	"Share via Email":{
+		en:"Share via Email",
+		es:"Compartir via e-mail"
+	},
+	"Share via Direct Message":{
+		en:"Share via Direct Message",
+		es:"Compartir via mensaje directo"
+	},
+	"Copy link to this Tweet":{
+		en:"Copy link to this Tweet",
+		es:"Copiar enlace para Tweet"
+	},
+	"Copy link to Tweet":{
+		en:"Copy link to Tweet",
+		es:"Copiar enlace para Tweet"
+	},
+	"Embed this Tweet":{
+		en:"Embed this Tweet",
+		es:"Integrar este Tweet"
+	},
+	"Retweet this to your followers?":{
+		en:"Retweet this to your followers?",
+		es:"¿Retwittear esto a tus seguidores?"
+	},
 }
 
-var patchedTDi = false;
+var mustachePatches = {
+	"keyboard_shortcut_list.mustache":{
+		"Actions":1,
+		"Reply":1,
+		"Retweet":1,
+		"New Tweet":1,
+		"Direct message":1,
+		"View user profile":1,
+		"Close Tweet Details":1,
+		"Send Tweet":1,
+		"Enter":1,
+		"Backspace":1,
+		"Ctrl":1,
+		"Add Column":1,
+		"This menu":1,
+		"Right":1,
+		"Left":1,
+		"Down":1,
+		"Up":1,
+		"Navigation":1,
+		"Column 1－9":1,
+		"Final column":1,
+		"Expand/Collapse navigation":1,
+		"Search":1
+	},
+	"compose/docked_compose.mustache":{
+
+	},
+	"version.mustache":{
+		"Version":1
+	},
+	"menus/search_location_form.mustache":{
+		"Type in a location":1
+	},
+	"lists/edit_list_details.mustache":{
+		"Under 100 characters, optional":1
+	},
+	"customtimeline/edit_customtimeline.mustache":{
+		"Under 160 characters, optional":1
+	},
+	"column_loading_placeholder.mustache":{
+		"}}Loading":1,
+		"}}Updating":1
+	},
+	"login/promo_for_login_form.mustache":{
+		"Tweet like a pro.":1
+	},
+	"column/column_options.mustache":{
+		"Remove":1
+	}
+}
+
+var miscStrings = {
+	TDApi:1
+}
+
+var translateFunction = function(a,b,c) {
+	if (typeof a !== "undefined") {
+		if (typeof b === "undefined" || b === null) {
+			if (typeof customLanguageData[a] !== "undefined") {
+				return customLanguageData[a][languageFull]||customLanguageData[a][languageMain]||customLanguageData[a][languageFallback];
+			} else if (typeof languageData[a] !== "undefined") {
+				return languageData[a][languageFull]||languageData[a][languageMain]||languageData[a][languageFallback];
+			} else {
+				console.log("Missing string: "+a);
+				return a;
+			}
+		} else {
+			var a = a;
+			for (var key in b) {
+				a = a.replace("{{"+key+"}}",b[key]);
+			}
+			return a;
+		}
+	} else {
+		console.log("man you gotta actually specify something for TD.i");
+		console.log(a,b,c);
+	}
+}
 
 function patchTDi() {
 	if (typeof TD !== "undefined") {
-		TD.i = function(a,b,c) {
-			if (typeof a !== "undefined") {
-				if (typeof b === "undefined" || b === null) {
-					if (typeof customLanguageData[a] !== "undefined") {
-						return customLanguageData[a][languageFull]||customLanguageData[a][languageMain]||customLanguageData[a][languageFallback];
-					} else if (typeof languageData[a] !== "undefined") {
-						return languageData[a][languageFull]||languageData[a][languageMain]||languageData[a][languageFallback];
-					} else {
-						console.log("Missing string: "+a);
-						return a;
-					}
-				} else {
-					var a = a;
-					for (var key in b) {
-						a = a.replace("{{"+key+"}}",b[key]);
-					}
-					return a;
-				}
-			} else {
-				console.log("man you gotta actually specify something for TD.i");
-				console.log(a,b,c);
-			}
-		}
-		patchedTDi = true;
+		TD.i = translateFunction;
 	} else {
 		console.log("Waiting for TD to be ready...");
 		setTimeout(patchTDi,0);
@@ -1512,23 +2650,43 @@ function patchTDi() {
 }
 
 function patchColumnTitle() {
-	if (typeof mR !== "undefined" && patchedTDi) {
+	if (typeof TD !== "undefined" && typeof mR !== "undefined") {
 		var columnData = mR.findFunction("getColumnTitleArgs")[0].columnMetaTypeToTitleTemplateData;
 		for (var key in columnData) {
-			columnData[key].title = TD.i(columnData[key].title);
+			columnData[key].title = translateFunction(columnData[key].title);
 		}
 	} else {
-		console.log("Waiting for TD.i and mR to be ready...");
+		console.log("Waiting for mR to be ready...");
 		setTimeout(patchColumnTitle,0);
 		return;
 	}
 }
 
+function patchButtonText() {
+	if (typeof TD !== "undefined" && typeof mR !== "undefined") {
+		var buttonData = mR.findFunction("tooltipText");
+		for (var i=0;i<buttonData.length;i++) {
+			if (typeof buttonData[i].buttonText !== "undefined") {
+				for (var key in buttonData[i].buttonText) {
+					buttonData[i].buttonText[key] = translateFunction(buttonData[i].buttonText[key]);
+				}
+			} 
+			for (var key in buttonData[i].tooltipText) {
+				buttonData[i].tooltipText[key] = translateFunction(buttonData[i].tooltipText[key]);
+			}
+		}
+	} else {
+		console.log("Waiting for mR to be ready...");
+		setTimeout(patchButtonText,0);
+		return;
+	}
+}
+
 function patchColumnTitleAddColumn() {
-	if (patchedTDi && TD && TD.controller && TD.controller.columnManager && TD.controller.columnManager.DISPLAY_ORDER) {
+	if (typeof TD !== "undefined" && typeof TD.controller !== "undefined" && typeof TD.controller.columnManager !== "undefined" && typeof TD.controller.columnManager.DISPLAY_ORDER !== "undefined") {
 		var columnData = TD.controller.columnManager.DISPLAY_ORDER;
 		for (var key in columnData) {
-			columnData[key].title = TD.i(columnData[key].title);
+			columnData[key].title = translateFunction(columnData[key].title);
 		}
 	} else {
 		console.log("Waiting for DISPLAY_ORDER and etc to be ready...");
@@ -1537,6 +2695,46 @@ function patchColumnTitleAddColumn() {
 	}
 }
 
+function patchMustaches() {
+	if (typeof TD_mustaches !== "undefined") {
+		for (var key in mustachePatches) {
+			if (typeof TD_mustaches[key] !== "undefined") {
+				for (var key2 in mustachePatches[key]) {
+					TD_mustaches[key] = TD_mustaches[key].replace(key2,translateFunction(key2))
+				}
+			} else {
+				console.log("what the heck, where is mustache "+key+"?");
+			}
+		}
+	} else {
+		console.log("Waiting on TD_mustaches...");
+		setTimeout(patchMustaches,0);
+		return;
+	}
+}
+
+function patchMiscStrings() {
+	for (var key in miscStrings) {
+		switch(key){
+			case "TDApi":
+			if (typeof TD !== "undefined" && typeof TD.constants !== "undefined" && typeof TD.constants.TDApi !== "undefined") {
+				for (var key2 in TD.constants.TDApi) {
+					TD.constants.TDApi[key2] = translateFunction(key2);
+				}
+			} else {
+				console.log("Waiting on TDApi...");
+				setTimeout(patchMiscStrings,0);
+				return;
+			}
+			
+			break;
+		}
+	}
+}
+
 patchTDi();
 patchColumnTitle();
+patchButtonText();
 patchColumnTitleAddColumn();
+patchMustaches();
+patchMiscStrings();
