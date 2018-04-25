@@ -1074,6 +1074,10 @@ var languageData = {
 		en:"Filtered by:",
 		es:"Filtrado por:"
 	},
+	"by":{
+		en:"by",
+		es:"por"
+	},
 	"1st":{en:"1st",es:"1"},
 	"2nd":{en:"2nd",es:"2"},
 	"3rd":{en:"3rd",es:"3"},
@@ -1732,6 +1736,38 @@ var languageData = {
 	"Ctrl":{
 		en:"Ctrl",
 		es:"Ctrl"
+	},
+	"Success: Media flagged":{
+		en:"Success: Media flagged",
+		es:"Éxito: Medio marcó"
+	},
+	"Flagging media…":{
+		en:"Flagging media…",
+		es:"Marcando medio…"
+	},
+	"Report an issue":{
+		en:"Report an issue",
+		es:"Reportar un problema"
+	},
+	"The item you requested is below.":{
+		en:"The item you requested is below.",
+		es:"El artículo que solicitó está debajo."
+	},
+	"Include Tweet in:":{
+		en:"Include Tweet in:",
+		es:"Incluir Tweet en:"
+	},
+	"Protected":{
+		en:"Protected",
+		es:"Protegido"
+	},
+	"Follow ":{
+		en:"Follow ",
+		es:"Seguir "
+	},
+	" from your accounts":{
+		en:" from your accounts",
+		es:" de tus cuentas"
 	},
 	"Add another Tweet":{
 		en:"Add another Tweet",
@@ -2557,6 +2593,22 @@ var languageData = {
 		en:"Retweet this to your followers?",
 		es:"¿Retwittear esto a tus seguidores?"
 	},
+	"Include ":{
+		en:"Include ",
+		es:"Incluir "
+	},
+	"Muted conversation":{
+		en:"Muted conversation",
+		es:"Silenció conversación"
+	},
+	"Muted conversation":{
+		en:"Muted conversation",
+		es:"Dejar de Silenciar conversación"
+	},
+	" in:":{
+		en:" in:",
+		es:" en:"
+	},
 }
 
 var mustachePatches = {
@@ -2615,8 +2667,30 @@ var miscStrings = {
 	TDApi:1
 }
 
-var translateFunction = function(a,b,c) {
+var weirdStrings = {
+	"Follow ":{en:"Follow ",es:"Seguir "},
+	"Translated from ":{en:"Translated from ",es:"Traducido de "},
+	"Include ":{en:"Include ",es:"Incluir "},
+	" in:":{en:" in:",es:" en:"},
+	"Muting ":{en:"Muting",es:"Silenciando "},
+	" from your accounts":{en:" from your accounts",es:" de tus cuentas"}
+}
+
+var TDiInitial = TD.i;
+
+var translateFunction = function(a,b,c,d,e) {
 	if (typeof a !== "undefined") {
+		if (a.includes("{{\>")) {
+			console.log("oh ok",a)
+			var checkmateTwitter = TDiInitial(a,b,c,d,e);
+			for (var key in weirdStrings) {
+				checkmateTwitter = checkmateTwitter.replace(key,weirdStrings[key][languageFull]||weirdStrings[key][languageMain]||weirdStrings[key][languageFallback])
+			}
+			if (checkmateTwitter.includes("{{>")) {
+				return checkmateTwitter;
+			}
+			return translateFunction(checkmateTwitter,b,c,d,e);
+		}
 		if (typeof b === "undefined" || b === null) {
 			if (typeof customLanguageData[a] !== "undefined") {
 				return customLanguageData[a][languageFull]||customLanguageData[a][languageMain]||customLanguageData[a][languageFallback];
@@ -2635,7 +2709,7 @@ var translateFunction = function(a,b,c) {
 		}
 	} else {
 		console.log("man you gotta actually specify something for TD.i");
-		console.log(a,b,c);
+		console.log(a,b,c,d,e);
 	}
 }
 
