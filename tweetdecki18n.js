@@ -279,6 +279,10 @@ var languageData = {
 		en:"All accounts",
 		es:"Todas las cuentas"
 	},
+	"(all accounts)":{
+		en:"(all accounts)",
+		es:"(todas las cuentas)"
+	},
 	"Monday":{
 		en:"Monday",
 		es:"Lunes"
@@ -712,10 +716,6 @@ var languageData = {
 		en:"Back to {{{columntitle}}}",
 		es:"Volver a {{{columntitle}}}"
 	},
-	"Notifications":{
-		en:"Notifications",
-		es:"Notificaciones"
-	},
 	"Log out":{
 		en:"Log out",
 		es:"Cerrar sesión"
@@ -865,19 +865,6 @@ var languageData = {
 	"Urdu":{en:"Urdu",es:"Urdu"},
 	"Vietnamese":{en:"Vietnamese",es:"Vietnamita"},
 	"-":{en:"-",es:"-"},
-
-	"Unknown Column":{
-		en:"Unknown Column",
-		es:"Columna Desconocida"
-	},
-	"General Election":{
-		en:"General Election",
-		es:"Elección General"
-	},
-	"Live video":{
-		en:"Live video",
-		es:"Video en vivo"
-	},
 	"Trending":{
 		en:"Trending",
 		es:"Tendencias"
@@ -889,14 +876,6 @@ var languageData = {
 	"Scheduled":{
 		en:"Scheduled",
 		es:"Programado"
-	},
-	"Followers":{
-		en:"Followers",
-		es:"Seguidores"
-	},
-	"Mentions":{
-		en:"Mentions",
-		es:"Menciones"
 	},
 	"followers":{
 		en:"followers",
@@ -917,6 +896,22 @@ var languageData = {
 	"All except mentions":{
 		en:"All except mentions",
 		es:"Todos excepto menciones"
+	},
+	"Likes":{
+		en:"Likes",
+		es:"Me gusta"
+	},
+	"Notifications":{
+		en:"Notifications",
+		es:"Notificaciones"
+	},
+	"Followers":{
+		en:"Followers",
+		es:"Seguidores"
+	},
+	"Mentions":{
+		en:"Mentions",
+		es:"Menciones"
 	},
 	"Messages":{
 		en:"Messages",
@@ -941,6 +936,74 @@ var languageData = {
 	"Home":{
 		en:"Home",
 		es:"Inicio"
+	},
+	"Dataminr":{
+		en:"Dataminr",
+		es:"Dataminr"
+	},
+	"Unknown Column":{
+		en:"Unknown Column",
+		es:"Columna Desconocida"
+	},
+	"General Election":{
+		en:"General Election",
+		es:"Elección General"
+	},
+	"Live video":{
+		en:"Live video",
+		es:"Video en vivo"
+	},
+	"Add a Likes column":{
+		en:"Add a Likes column",
+		es:"Añadir una columna de Me gusta"
+	},
+	"Add a Notifications column":{
+		en:"Add a Notifications column",
+		es:"Añadir una columna de Notificaciones"
+	},
+	"Add a Live Video column":{
+		en:"Add a Live Video column",
+		es:"Añadir una columna de Video en Vivo"
+	},
+	"Add a General Election column":{
+		en:"Add a General Election column",
+		es:"Añadir una columna de la Elección General"
+	},
+	"Add a Dataminr column":{
+		en:"Add a Dataminr column",
+		es:"Añadir una columna de Dataminr"
+	},
+	"Add a Followers column":{
+		en:"Add a Followers column",
+		es:"Añadir una columna de Seguidores"
+	},
+	"Add a Mentions column":{
+		en:"Add a Mentions column",
+		es:"Añadir una columna de Menciones"
+	},
+	"Add a Messages column":{
+		en:"Add a Messages column",
+		es:"Añadir una columna de Mensajes"
+	},
+	"Add an Activity column":{
+		en:"Add aa Activity column",
+		es:"Añadir una columna de Actividad"
+	},
+	"Add a Collection column":{
+		en:"Add a Collection column",
+		es:"Añadir una columna de Colección"
+	},
+	"Add a List column":{
+		en:"Add a List column",
+		es:"Añadir una columna de Lista"
+	},
+	"Add a User column":{
+		en:"Add a User column",
+		es:"Añadir una columna de Usario"
+	},
+	"Add a Home column":{
+		en:"Add a Home column",
+		es:"Añadir una columna de Inicio"
 	},
 	"User mutes work across TweetDeck & Twitter. To review your list of user mutes visit <a href=\"https://twitter.com/settings/muted\" target=\"_blank\" rel=\"url\">twitter.com/settings/muted</a>.":{
 		en:"User mutes work across TweetDeck & Twitter. To review your list of user mutes visit <a href=\"https://twitter.com/settings/muted\" target=\"_blank\" rel=\"url\">twitter.com/settings/muted</a>.",
@@ -1208,10 +1271,6 @@ var languageData = {
 	"Try":{
 		en:"Try",
 		es:"Tratar"
-	},
-	"Dataminr":{
-		en:"Dataminr",
-		es:"Dataminr"
 	},
 	"You're on the team! Only admins of this account can manage the team.":{
 		en:"You're on the team! Only admins of this account can manage the team.",
@@ -1508,10 +1567,6 @@ var languageData = {
 	"All except Retweets":{
 		en:"All except Retweets",
 		es:"Todos excepto Retweets"
-	},
-	"Likes":{
-		en:"Likes",
-		es:"Me gusta"
 	},
 	"All except likes":{
 		en:"All except likes",
@@ -2664,7 +2719,11 @@ var mustachePatches = {
 }
 
 var miscStrings = {
-	TDApi:1
+	TDApi:1,
+	DISPLAY_ORDER_PROFILE:1,
+	MENU_TITLE:1,
+	MENU_ATTRIBUTION:1,
+	MODAL_TITLE:1
 }
 
 var weirdStrings = {
@@ -2789,19 +2848,67 @@ function patchMustaches() {
 
 function patchMiscStrings() {
 	for (var key in miscStrings) {
+		console.log(key);
 		switch(key){
 			case "TDApi":
-			if (typeof TD !== "undefined" && typeof TD.constants !== "undefined" && typeof TD.constants.TDApi !== "undefined") {
-				for (var key2 in TD.constants.TDApi) {
-					TD.constants.TDApi[key2] = translateFunction(key2);
+				if (typeof TD !== "undefined" && typeof TD.constants !== "undefined" && typeof TD.constants.TDApi !== "undefined") {
+					for (var key2 in TD.constants.TDApi) {
+						TD.constants.TDApi[key2] = translateFunction(key2);
+					}	
+					break;
+				} else {
+					console.log("Waiting on TDApi...");
+					setTimeout(patchMiscStrings,0);
+					return;
 				}
-			} else {
-				console.log("Waiting on TDApi...");
-				setTimeout(patchMiscStrings,0);
-				return;
-			}
-			
-			break;
+			case "DISPLAY_ORDER_PROFILE":
+				if (typeof TD !== "undefined" && typeof TD.controller !== "undefined" && typeof TD.controller.columnManager !== "undefined" && typeof TD.controller.columnManager.DISPLAY_ORDER_PROFILE !== "undefined") {
+					for (var key2 in TD.controller.columnManager.DISPLAY_ORDER_PROFILE) {
+						var prof = TD.controller.columnManager.DISPLAY_ORDER_PROFILE[key2];
+						prof.title = translateFunction(prof.title);
+					}
+					break;
+				} else {
+					console.log("Waiting on TDApi...");
+					setTimeout(patchMiscStrings,0);
+					return;
+				}
+			case "MENU_TITLE":
+				if (typeof TD !== "undefined" && typeof TD.controller !== "undefined" && typeof TD.controller.columnManager !== "undefined" && typeof TD.controller.columnManager.MENU_TITLE !== "undefined") {
+					for (var key2 in TD.controller.columnManager.MENU_TITLE) {
+						TD.controller.columnManager.MENU_TITLE[key2] =
+						translateFunction(TD.controller.columnManager.MENU_TITLE[key2]);
+					}
+					break;
+				} else {
+					console.log("Waiting on TDApi...");
+					setTimeout(patchMiscStrings,0);
+					return;
+				}
+			case "MENU_ATTRIBUTION":
+				if (typeof TD !== "undefined" && typeof TD.controller !== "undefined" && typeof TD.controller.columnManager !== "undefined" && typeof TD.controller.columnManager.MENU_ATTRIBUTION !== "undefined") {
+					for (var key2 in TD.controller.columnManager.MENU_ATTRIBUTION) {
+						TD.controller.columnManager.MENU_ATTRIBUTION[key2] =
+						translateFunction(TD.controller.columnManager.MENU_ATTRIBUTION[key2]);
+					}
+					break;
+				} else {
+					console.log("Waiting on TDApi...");
+					setTimeout(patchMiscStrings,0);
+					return;
+				}
+			case "MODAL_TITLE":
+				if (typeof TD !== "undefined" && typeof TD.controller !== "undefined" && typeof TD.controller.columnManager !== "undefined" && typeof TD.controller.columnManager.MODAL_TITLE !== "undefined") {
+					for (var key2 in TD.controller.columnManager.MODAL_TITLE) {
+						TD.controller.columnManager.MODAL_TITLE[key2] =
+						translateFunction(TD.controller.columnManager.MODAL_TITLE[key2]);
+					}
+					break;
+				} else {
+					console.log("Waiting on TDApi...");
+					setTimeout(patchMiscStrings,0);
+					return;
+				}
 		}
 	}
 }
