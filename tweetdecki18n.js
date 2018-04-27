@@ -1712,6 +1712,10 @@ var languageData = {
 		en:"View Tweet Details",
 		es:"Ver Detalles de Tweet"
 	},
+	"View Tweet Activity":{
+		en:"View Tweet Activity",
+		es:"Ver Actividad del Tweet"
+	},
 	"Close Tweet Details":{
 		en:"Close Tweet Details",
 		es:"Cerrar Detalles de Tweet"
@@ -1959,6 +1963,14 @@ var languageData = {
 	"Delete list":{
 		en:"Delete list",
 		es:"Elimimar lista"
+	},
+	"Deleting":{
+		en:"Deleting",
+		es:"Eliminando"
+	},
+	"Success: ":{
+		en:"Success: ",
+		es:"Success: "
 	},
 	"Members":{
 		en:"Members",
@@ -2715,8 +2727,19 @@ var mustachePatches = {
 	},
 	"column/column_options.mustache":{
 		"Remove":1
+	},
+	"actions/follow_from.mustache":{
+		"from":1
+	},
+	"follow_button.mustache":{
+		"From":1
+	},
+	"action_header.mustache":{
+		"From":1
 	}
 }
+
+var TDiInitial;
 
 var miscStrings = {
 	TDApi:1,
@@ -2735,20 +2758,30 @@ var weirdStrings = {
 	" from your accounts":{en:" from your accounts",es:" de tus cuentas"}
 }
 
-var TDiInitial = TD.i;
-
 var translateFunction = function(a,b,c,d,e) {
+
+	if (a!=="Monday"&&a!=="Tuesday"&&a!=="Wednesday"&&a!=="Thursday"&&a!=="Friday"&&a!=="Saturday"&&a!=="Sunday"&&a!=="pm"&&a!=="am"&&a!=="{{month}} {{day}}"&&a!=="{{day}} {{month}} {{fullYear}}")console.log("oh shit",a);
+	
 	if (typeof a !== "undefined") {
-		if (a.includes("{{\>")) {
+		if (a.includes("{{{\>")) {
+			console.log("oh hmm",a)
+			var checkmateTwitter = TDiInitial(a,b,c,d,e);
+			for (var key in weirdStrings) {
+				checkmateTwitter = checkmateTwitter.replaceAll(key,weirdStrings[key][languageFull]||weirdStrings[key][languageMain]||weirdStrings[key][languageFallback])
+			}
+			return translateFunction(checkmateTwitter,b,c,d,e);
+		} else if (a.includes("{{\>")) {
 			console.log("oh ok",a)
 			var checkmateTwitter = TDiInitial(a,b,c,d,e);
 			for (var key in weirdStrings) {
-				checkmateTwitter = checkmateTwitter.replace(key,weirdStrings[key][languageFull]||weirdStrings[key][languageMain]||weirdStrings[key][languageFallback])
+				checkmateTwitter = checkmateTwitter.replaceAll(key,weirdStrings[key][languageFull]||weirdStrings[key][languageMain]||weirdStrings[key][languageFallback])
 			}
 			if (checkmateTwitter.includes("{{>")) {
 				return checkmateTwitter;
 			}
 			return translateFunction(checkmateTwitter,b,c,d,e);
+		} else if (a.substr(0,6) === "From @") {
+			return translateFunction(a.substr(0,4)) + " @" + a.substr(6);
 		}
 		if (typeof b === "undefined" || b === null) {
 			if (typeof customLanguageData[a] !== "undefined") {
@@ -2774,10 +2807,11 @@ var translateFunction = function(a,b,c,d,e) {
 
 function patchTDi() {
 	if (typeof TD !== "undefined") {
+		TDiInitial = TD.i;
 		TD.i = translateFunction;
 	} else {
 		console.log("Waiting for TD to be ready...");
-		setTimeout(patchTDi,0);
+		setTimeout(patchTDi,10);
 		return;
 	}
 }
@@ -2790,7 +2824,7 @@ function patchColumnTitle() {
 		}
 	} else {
 		console.log("Waiting for mR to be ready...");
-		setTimeout(patchColumnTitle,0);
+		setTimeout(patchColumnTitle,10);
 		return;
 	}
 }
@@ -2799,18 +2833,20 @@ function patchButtonText() {
 	if (typeof TD !== "undefined" && typeof mR !== "undefined") {
 		var buttonData = mR.findFunction("tooltipText");
 		for (var i=0;i<buttonData.length;i++) {
-			if (typeof buttonData[i].buttonText !== "undefined") {
-				for (var key in buttonData[i].buttonText) {
-					buttonData[i].buttonText[key] = translateFunction(buttonData[i].buttonText[key]);
-				}
+			if (typeof buttonData[i] !== "undefined") {
+				if (typeof buttonData[i].buttonText !== "undefined")
+					for (var key in buttonData[i].buttonText) {
+						buttonData[i].buttonText[key] = translateFunction(buttonData[i].buttonText[key]);
+					};
+				if (typeof buttonData[i].tooltipText!== "undefined")
+					for (var key in buttonData[i].tooltipText) {
+						buttonData[i].tooltipText[key] = translateFunction(buttonData[i].tooltipText[key]);
+					};
 			} 
-			for (var key in buttonData[i].tooltipText) {
-				buttonData[i].tooltipText[key] = translateFunction(buttonData[i].tooltipText[key]);
-			}
 		}
 	} else {
 		console.log("Waiting for mR to be ready...");
-		setTimeout(patchButtonText,0);
+		setTimeout(patchButtonText,10);
 		return;
 	}
 }
@@ -2820,10 +2856,13 @@ function patchColumnTitleAddColumn() {
 		var columnData = TD.controller.columnManager.DISPLAY_ORDER;
 		for (var key in columnData) {
 			columnData[key].title = translateFunction(columnData[key].title);
+			if (typeof columnData[key].attribution !== "undefined") {
+				columnData[key].attribution = translateFunction(columnData[key].attribution);
+			}
 		}
 	} else {
 		console.log("Waiting for DISPLAY_ORDER and etc to be ready...");
-		setTimeout(patchColumnTitleAddColumn,0);
+		setTimeout(patchColumnTitleAddColumn,10);
 		return;
 	}
 }
@@ -2833,7 +2872,7 @@ function patchMustaches() {
 		for (var key in mustachePatches) {
 			if (typeof TD_mustaches[key] !== "undefined") {
 				for (var key2 in mustachePatches[key]) {
-					TD_mustaches[key] = TD_mustaches[key].replace(key2,translateFunction(key2))
+					TD_mustaches[key] = TD_mustaches[key].replaceAll(key2,translateFunction(key2))
 				}
 			} else {
 				console.log("what the heck, where is mustache "+key+"?");
@@ -2841,7 +2880,7 @@ function patchMustaches() {
 		}
 	} else {
 		console.log("Waiting on TD_mustaches...");
-		setTimeout(patchMustaches,0);
+		setTimeout(patchMustaches,10);
 		return;
 	}
 }
@@ -2858,7 +2897,7 @@ function patchMiscStrings() {
 					break;
 				} else {
 					console.log("Waiting on TDApi...");
-					setTimeout(patchMiscStrings,0);
+					setTimeout(patchMiscStrings,10);
 					return;
 				}
 			case "DISPLAY_ORDER_PROFILE":
@@ -2870,7 +2909,7 @@ function patchMiscStrings() {
 					break;
 				} else {
 					console.log("Waiting on TDApi...");
-					setTimeout(patchMiscStrings,0);
+					setTimeout(patchMiscStrings,10);
 					return;
 				}
 			case "MENU_TITLE":
@@ -2882,7 +2921,7 @@ function patchMiscStrings() {
 					break;
 				} else {
 					console.log("Waiting on TDApi...");
-					setTimeout(patchMiscStrings,0);
+					setTimeout(patchMiscStrings,10);
 					return;
 				}
 			case "MENU_ATTRIBUTION":
@@ -2894,7 +2933,7 @@ function patchMiscStrings() {
 					break;
 				} else {
 					console.log("Waiting on TDApi...");
-					setTimeout(patchMiscStrings,0);
+					setTimeout(patchMiscStrings,10);
 					return;
 				}
 			case "MODAL_TITLE":
@@ -2906,16 +2945,22 @@ function patchMiscStrings() {
 					break;
 				} else {
 					console.log("Waiting on TDApi...");
-					setTimeout(patchMiscStrings,0);
+					setTimeout(patchMiscStrings,10);
 					return;
 				}
 		}
 	}
 }
 
+if (typeof String !== "undefined" && typeof String.prototype !== "undefined")
+	String.prototype.replaceAll = function(search, replacement) {
+	    var target = this;
+	    return target.replace(new RegExp(search, 'g'), replacement);
+	};
+
 patchTDi();
+patchMiscStrings();
 patchColumnTitle();
 patchButtonText();
 patchColumnTitleAddColumn();
 patchMustaches();
-patchMiscStrings();
