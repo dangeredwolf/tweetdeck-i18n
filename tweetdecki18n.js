@@ -2512,10 +2512,10 @@ var languageData = {
 		en:"Showing",
 		es:"Mirando"
 	},
-	"No":{
-		en:"No",
-		es:"No"
-	},
+	// "No":{
+	// 	en:"No",
+	// 	es:"No"
+	// },
 	"Enter words to exclude":{
 		en:"Enter words to exclude",
 		es:"Escribir las palabras para excluir"
@@ -2672,6 +2672,10 @@ var languageData = {
 		en:"Muted conversation",
 		es:"Dejar de Silenciar conversación"
 	},
+	"People in conversation":{
+		en:"People in conversation",
+		es:"People in conversation"
+	},
 	" in:":{
 		en:" in:",
 		es:" en:"
@@ -2760,7 +2764,9 @@ var weirdStrings = {
 
 var translateFunction = function(a,b,c,d,e) {
 
-	if (a!=="Monday"&&a!=="Tuesday"&&a!=="Wednesday"&&a!=="Thursday"&&a!=="Friday"&&a!=="Saturday"&&a!=="Sunday"&&a!=="pm"&&a!=="am"&&a!=="{{month}} {{day}}"&&a!=="{{day}} {{month}} {{fullYear}}")console.log("oh shit",a);
+	if (a!=="Monday"&&a!=="Tuesday"&&a!=="Wednesday"&&a!=="Thursday"&&a!=="Friday"&&a!=="Saturday"&&a!=="Sunday"&&a!=="pm"&&a!=="am"&&a!=="{{month}} {{day}}"&&a!=="{{day}} {{month}} {{fullYear}}")
+		//console.log("oh shit",a)
+	;
 	
 	if (typeof a !== "undefined") {
 		if (a.includes("{{{\>")) {
