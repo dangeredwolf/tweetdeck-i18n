@@ -2584,8 +2584,8 @@ var languageData = {
 		en:"All except lists",
 		es:"Todos excepto listas"
 	},
-	"Traducido del {{localizedLanguageName}} por {{>text/microsoft_translator_link}}":{
-		en:"Traducido del {{localizedLanguageName}} por {{>text/microsoft_translator_link}}",
+	"Translated from {{localizedLanguageName}} by {{>text/microsoft_translator_link}}":{
+		en:"Translated from {{localizedLanguageName}} by {{>text/microsoft_translator_link}}",
 		es:"Traducido del {{localizedLanguageName}} por {{>text/microsoft_translator_link}}"
 	},
 	"Undo Retweet":{
