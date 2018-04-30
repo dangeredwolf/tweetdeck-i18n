@@ -408,6 +408,10 @@ var languageData = {
 		en:"{{hours12}}:{{minutes}} {{amPm}}, {{day}} {{month}} {{fullYear}}",
 		es:"{{hours12}}:{{minutes}} {{amPm}}, {{day}} {{month}} {{fullYear}}"
 	},
+	"{{hours12}}:{{minutes}}{{amPm}} · {{day}} {{month}} {{fullYear}}":{
+		en:"{{hours12}}:{{minutes}}{{amPm}} · {{day}} {{month}} {{fullYear}}",
+		es:"{{hours12}}:{{minutes}}{{amPm}} · {{day}} {{month}} {{fullYear}}"
+	},
 	"{{day}} {{month}} {{fullYear}}":{
 		en:"{{day}} {{month}} {{fullYear}}",
 		es:"{{day}} {{month}} {{fullYear}}"
@@ -1387,6 +1391,10 @@ var languageData = {
 	"Matching":{
 		en:"Matching",
 		es:"Igual a"
+	},
+	"matching ‘{{{matching}}}’":{
+		en:"matching ‘{{{matching}}}’",
+		es:"igual a ‘{{{matching}}}’"
 	},
 	"Tweet Source":{
 		en:"Tweet Source",
@@ -2504,6 +2512,10 @@ var languageData = {
 		en:"Written in",
 		es:"Escrito en"
 	},
+	"written in {{{lang}}}":{
+		en:"written in {{{lang}}}",
+		es:"escrito en {{{lang}}}"
+	},
 	"Excluding":{
 		en:"Excluding",
 		es:"Excluyendo"
@@ -2547,6 +2559,10 @@ var languageData = {
 	"Edit list":{
 		en:"Edit list",
 		es:"Editar la lista"
+	},
+	"Edit List — “{{listName}}” by @{{screenName}}":{
+		en:"Edit List — “{{listName}}” by @{{screenName}}",
+		es:"Editar la Lista — “{{listName}}” por @{{screenName}}"
 	},
 	"Lists":{
 		en:"Lists",
@@ -2674,7 +2690,19 @@ var languageData = {
 	},
 	"People in conversation":{
 		en:"People in conversation",
-		es:"People in conversation"
+		es:"Personas en la conversación"
+	},
+	"This conversation includes these people.":{
+		en:"This conversation includes these people.",
+		es:"Esta conversación incluye a estas personas."
+	},
+	"Your Tweet will go to the people in this conversation.":{
+		en:"Your Tweet will go to the people in this conversation.",
+		es:"Tu Tweet se enviará a las personas en esta conversación "
+	},
+	"Replying to":{
+		en:"Replying to",
+		es:"Respondiendo a"
 	},
 	" in:":{
 		en:" in:",
@@ -2740,7 +2768,15 @@ var mustachePatches = {
 	},
 	"action_header.mustache":{
 		"From":1
-	}
+	},
+	// "menus/search_content_form.mustache":{
+	// 	"Showing":1,
+	// 	"Matching":1,
+	// 	"Excluding":1,
+	// 	"Written in":1,
+	// 	"any language":1,
+
+	// }
 }
 
 var TDiInitial;
@@ -2762,34 +2798,47 @@ var weirdStrings = {
 	" from your accounts":{en:" from your accounts",es:" de tus cuentas"}
 }
 
-var translateFunction = function(a,b,c,d,e) {
+var translateFunction = function(a,b,c,d,e,f) {
 
 	if (a!=="Monday"&&a!=="Tuesday"&&a!=="Wednesday"&&a!=="Thursday"&&a!=="Friday"&&a!=="Saturday"&&a!=="Sunday"&&a!=="pm"&&a!=="am"&&a!=="{{month}} {{day}}"&&a!=="{{day}} {{month}} {{fullYear}}")
 		//console.log("oh shit",a)
 	;
 	
 	if (typeof a !== "undefined") {
-		if (a.includes("{{{\>")) {
-			console.log("oh hmm",a)
+		//console.log(f,f===1,f===2);
+		if ((a.includes("{{{")||a.includes("{{"))&&typeof f==="undefined"){
+			//console.log("aha",a);
+			//console.log("b,c,d",b,c,d);
+			var wtf = translateFunction(a,b,c,d,e,1);
+			var no = translateFunction(wtf,b,c,d,e,2);
+			//console.log("wtf",wtf);
+			//console.log("no",no);
+			return no;
+		} else if (a.includes("{{{") && f===2) {
+			//console.log("oh hmm",a);
+			var a = a;
+			//console.log("b,c,d",b,c,d);
+			for (var key in b) {
+				var replaceMe = b[key][languageFull]||b[key][languageMain]||b[key][languageFallback];
+				console.log("replaceMe",replaceMe);
+				a = a.replaceAll("\{\{\{"+key+"\}\}\}","\{\{\{"+replaceMe+"\}\}\}");
+			}
+			for (var key in weirdStrings) {
+				a = a.replaceAll(key,weirdStrings[key][languageFull]||weirdStrings[key][languageMain]||weirdStrings[key][languageFallback]);
+			}
+			return a;
+		} else if (a.includes("{{") && f===2) {
+			//console.log("oh ok",a);
+			//console.log("b,c,d",b,c,d);
 			var checkmateTwitter = TDiInitial(a,b,c,d,e);
 			for (var key in weirdStrings) {
 				checkmateTwitter = checkmateTwitter.replaceAll(key,weirdStrings[key][languageFull]||weirdStrings[key][languageMain]||weirdStrings[key][languageFallback])
 			}
-			return translateFunction(checkmateTwitter,b,c,d,e);
-		} else if (a.includes("{{\>")) {
-			console.log("oh ok",a)
-			var checkmateTwitter = TDiInitial(a,b,c,d,e);
-			for (var key in weirdStrings) {
-				checkmateTwitter = checkmateTwitter.replaceAll(key,weirdStrings[key][languageFull]||weirdStrings[key][languageMain]||weirdStrings[key][languageFallback])
-			}
-			if (checkmateTwitter.includes("{{>")) {
-				return checkmateTwitter;
-			}
-			return translateFunction(checkmateTwitter,b,c,d,e);
+			return checkmateTwitter;
 		} else if (a.substr(0,6) === "From @") {
 			return translateFunction(a.substr(0,4)) + " @" + a.substr(6);
 		}
-		if (typeof b === "undefined" || b === null) {
+		if (typeof b === "undefined" || b === null || f===1) {
 			if (typeof customLanguageData[a] !== "undefined") {
 				return customLanguageData[a][languageFull]||customLanguageData[a][languageMain]||customLanguageData[a][languageFallback];
 			} else if (typeof languageData[a] !== "undefined") {
