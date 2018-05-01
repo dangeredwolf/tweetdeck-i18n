@@ -19,10 +19,6 @@ var customLanguageData = {
 		en:"Sign Out",
 		es:"Cerrar Sesión"
 	},
-	"Theme":{
-		en:"Theme",
-		es:"Tema"
-	},
 	"About":{
 		en:"About",
 		es:"Sobre"
@@ -38,14 +34,6 @@ var customLanguageData = {
 	"Appearance":{
 		en:"Appearance",
 		es:"Apariencia"
-	},
-	"Preferences":{
-		en:"Preferences",
-		es:"Preferencias"
-	},
-	"Your Accounts":{
-		en:"Your Accounts",
-		es:"Tus Cuentas"
 	},
 	"Send Feedback":{
 		en:"Send Feedback",
@@ -65,6 +53,18 @@ var languageData = {
 	"":{
 		en:"",
 		es:""
+	},
+	"Preferences":{
+		en:"Preferences",
+		es:"Preferencias"
+	},
+	"Your Accounts":{
+		en:"Your Accounts",
+		es:"Tus Cuentas"
+	},
+	"Theme":{
+		en:"Theme",
+		es:"Tema"
 	},
 	"GIF":{
 		en:"GIF",
