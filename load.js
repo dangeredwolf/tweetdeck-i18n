@@ -5,15 +5,20 @@
 function waitForHead() {
 	if (document.head !== null) {
 
-		var InjectScript4 = document.createElement("script");
-		InjectScript4.src = chrome.extension.getURL("tweetdecki18n.js");;
-		InjectScript4.type = "text/javascript";
-		document.head.appendChild(InjectScript4);
+		var scr2 = document.createElement("script");
+		scr2.src = chrome.extension.getURL("moduleraid.min.js");;
+		scr2.type = "text/javascript";
+		document.head.appendChild(scr2);
 
-		var InjectScript3 = document.createElement("script");
-		InjectScript3.src = chrome.extension.getURL("moduleraid.min.js");;
-		InjectScript3.type = "text/javascript";
-		document.head.appendChild(InjectScript3);
+		var scr1 = document.createElement("script");
+		scr1.src = chrome.extension.getURL("tweetdecki18n.js");;
+		scr1.type = "text/javascript";
+		document.head.appendChild(scr1);
+
+		var scr3 = document.createElement("script");
+		scr3.src = chrome.extension.getURL("papaparse.min.js");;
+		scr3.type = "text/javascript";
+		document.head.appendChild(scr3);
 
 	} else {
 		setTimeout(waitForHead,0);
