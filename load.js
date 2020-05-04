@@ -14,7 +14,7 @@ function waitForHead() {
 		document.head.appendChild(scr2);
 
 		var scr1 = document.createElement("script");
-		scr1.src = chrome.extension.getURL("tweetdecki18n.js");
+		scr1.src = chrome.extension.getURL("I18n.js");
 		scr1.type = "module";
 		document.head.appendChild(scr1);
 
