@@ -1,7 +1,13 @@
-# tweetdeck-i18n
+# tweetdeck-i18n v2
 
-[![Crowdin](https://d322cqt584bo4o.cloudfront.net/tweetdeck/localized.svg)](https://crowdin.com/project/tweetdeck)
+[![Crowdin](https://badges.crowdin.net/tweetdeck/localized.svg)](https://translate.moderndeck.org/project/tweetdeck)
 
-### An unofficial, free and open-source project to translate TweetDeck into various other languages.
+### The unofficial free, open source project to translate TweetDeck into many languages.
 
-#### If you know other languages, please help us translate! https://crowdin.com/project/tweetdeck/
+This project is the *standalone* counterpart to the I18n feature used in [ModernDeck (8.0+)](https://github.com/dangeredwolf/ModernDeck).
+
+Both operate using the exact same build process and code.
+
+v1 was licensed under GPLv3 and v2 is licensed under MIT (hopefully more permissive to incorporate into other projects)
+
+#### If you know other languages, please help us translate! https://translate.moderndeck.org/project/tweetdeck
