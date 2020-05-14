@@ -207,38 +207,28 @@ function patchMiscStrings() {
 		setTimeout(patchMiscStrings,10);
 		return;
 	}
-	if (TD && TD.controller && TD.controller.columnManager && TD.controller.columnManager.DISPLAY_ORDER_PROFILE) {
-		for (const key2 in TD.controller.columnManager.DISPLAY_ORDER_PROFILE) {
-			let prof = TD.controller.columnManager.DISPLAY_ORDER_PROFILE[key2];
-			prof.title = I18n(prof.title);
+	if (TD && TD.controller && TD.controller.columnManager) {
+		if (TD.controller.columnManager.DISPLAY_ORDER_PROFILE) {
+			for (const key2 in TD.controller.columnManager.DISPLAY_ORDER_PROFILE) {
+				let prof = TD.controller.columnManager.DISPLAY_ORDER_PROFILE[key2];
+				prof.title = I18n(prof.title);
+			}
 		}
-	} else {
-		console.log("Waiting on TDApi...");
-		setTimeout(patchMiscStrings,10);
-		return;
-	}
-	if (TD && TD.controller && TD.controller.columnManager && TD.controller.columnManager.MENU_TITLE) {
-		for (const key2 in TD.controller.columnManager.MENU_TITLE) {
-			TD.controller.columnManager.MENU_TITLE[key2] = I18n(TD.controller.columnManager.MENU_TITLE[key2]);
+		if (TD.controller.columnManager.MENU_TITLE) {
+			for (const key2 in TD.controller.columnManager.MENU_TITLE) {
+				TD.controller.columnManager.MENU_TITLE[key2] = I18n(TD.controller.columnManager.MENU_TITLE[key2]);
+			}
 		}
-	} else {
-		console.log("Waiting on TDApi...");
-		setTimeout(patchMiscStrings,10);
-		return;
-	}
-	if (TD && TD.controller && TD.controller.columnManager && TD.controller.columnManager.MENU_ATTRIBUTION) {
-		for (const key2 in TD.controller.columnManager.MENU_ATTRIBUTION) {
-			TD.controller.columnManager.MENU_ATTRIBUTION[key2] = I18n(TD.controller.columnManager.MENU_ATTRIBUTION[key2]);
+		if (TD.controller.columnManager.MENU_ATTRIBUTION) {
+			for (const key2 in TD.controller.columnManager.MENU_ATTRIBUTION) {
+				TD.controller.columnManager.MENU_ATTRIBUTION[key2] = I18n(TD.controller.columnManager.MENU_ATTRIBUTION[key2]);
+			}
 		}
-	} else {
-		console.log("Waiting on TDApi...");
-		setTimeout(patchMiscStrings,10);
-		return;
-	}
-	if (TD && TD.controller && TD.controller.columnManager && TD.controller.columnManager.MODAL_TITLE) {
-		for (const key2 in TD.controller.columnManager.MODAL_TITLE) {
-			TD.controller.columnManager.MODAL_TITLE[key2] =
-			I18n(TD.controller.columnManager.MODAL_TITLE[key2]);
+		if (TD.controller.columnManager.MODAL_TITLE) {
+			for (const key2 in TD.controller.columnManager.MODAL_TITLE) {
+				TD.controller.columnManager.MODAL_TITLE[key2] =
+				I18n(TD.controller.columnManager.MODAL_TITLE[key2]);
+			}
 		}
 	} else {
 		console.log("Waiting on TDApi...");
