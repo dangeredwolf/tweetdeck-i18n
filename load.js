@@ -9,7 +9,7 @@ function waitForHead() {
 	if (document.head !== null) {
 
 		var scr2 = document.createElement("script");
-		scr2.src = chrome.extension.getURL("moduleraid.min.js");
+		scr2.src = chrome.extension.getURL("moduleraid.js");
 		scr2.type = "text/javascript";
 		document.head.appendChild(scr2);
 
