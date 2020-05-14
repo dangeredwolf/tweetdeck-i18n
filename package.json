@@ -8,17 +8,21 @@
 	"bugs": {
 		"url": "https://github.com/dangeredwolf/tweetdeck-i18n/issues"
 	},
-	"author": "dangeredwolf",
+	"author": "dangeredwolf, et al",
 	"scripts": {
-		"start": "node updatei18n.js",
-		"buildi18n": "node updatei18n.js"
+		"start": "node updatei18n.js && rollup -c",
+		"updatei18n": "node updatei18n.js"
 	},
 	"repository": "https://github.com/dangeredwolf/tweetdeck-i18n",
 	"keywords": [
 		"TweetDeck",
 		"tweetdeck-i18n"
 	],
-	"dependencies": {},
+	"dependencies": {
+		"@rollup/plugin-json": "^4.0.3",
+		"@rollup/plugin-node-resolve": "^7.1.3",
+		"rollup": "^1.32.1"
+	},
 	"devDependencies": {},
 	"stylelint": {}
 }
