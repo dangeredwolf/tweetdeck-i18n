@@ -271,7 +271,4 @@ export function startI18nEngine() {
 	patchMustaches();
 }
 
-// In ModernDeck, the function is executed via mtdInject.js
-if (!window.version) {
-	startI18nEngine();
-}
+startI18nEngine();
