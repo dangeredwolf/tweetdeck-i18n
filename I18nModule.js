@@ -1,5 +1,5 @@
 /**
-* tweetdeck-i18n 2.0.0
+* tweetdeck-i18n 2.1.0
 * @license MIT
 * https://github.com/dangeredwolf/tweetdeck-i18n 
 **/
@@ -28,8 +28,8 @@ if (window.version) {
 	langRoot = langFull.substring(0,2);
 } else {
 	console.log("I18n: Detected TweetDeck i18n");
-	langFull = navigator.language.replace("-","_");
-	langRoot = navigator.language.substring(0,2);
+	langFull = "ja_JP";//navigator.language.replace("-","_");
+	langRoot = "ja";//navigator.language.substring(0,2);
 }
 
 const getFullLanguage = () => langFull;
@@ -271,6 +271,8 @@ function startI18nEngine() {
 	patchColumnTitleAddColumn();
 	patchMustaches();
 }
+
+window.I18n = I18n;
 
 startI18nEngine();
 
