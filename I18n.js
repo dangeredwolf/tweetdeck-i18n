@@ -4,6 +4,7 @@
 	Released under the MIT license
 */
 
+"use strict";
 
 let displayWarning = false;
 let tweetDeckTranslateInitial;
@@ -270,5 +271,7 @@ export function startI18nEngine() {
 	patchColumnTitleAddColumn();
 	patchMustaches();
 }
+
+window.I18n = I18n;
 
 startI18nEngine();
