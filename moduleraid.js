@@ -6,68 +6,66 @@
  * https://github.com/pixeldesu/moduleRaid/blob/master/LICENSE
  */
 
- "use strict";
-
-window.moduleRaid = function (debug) {
-  window.moduleRaid.mID  = Math.random().toString(36).substring(7);
-  window.moduleRaid.mObj = {};
-  window.moduleRaid.cArr = [];
-  window.moduleRaid.mGet = null;
+const moduleRaid = function (debug) {
+  moduleRaid.mID  = Math.random().toString(36).substring(7);
+  moduleRaid.mObj = {};
+  moduleRaid.cArr = [];
+  moduleRaid.mGet = null;
 
   if (debug) {
-    window.moduleRaid.debug = true;
+    moduleRaid.debug = true;
   } else if (window.mRdebug) {
-    window.moduleRaid.debug = true;
+    moduleRaid.debug = true;
   } else {
-    window.moduleRaid.debug = false;
+    moduleRaid.debug = false;
   }
 
-  window.moduleRaid.log = function (message) {
-    if (window.moduleRaid.debug) {
+  moduleRaid.log = function (message) {
+    if (moduleRaid.debug) {
       console.warn(`[moduleRaid] ${message}`);
     }
   }
 
-  window.moduleRaid.args = [
+  moduleRaid.args = [
     [[0], [function(e, t, i) {
       mCac = i.c;
       Object.keys(mCac).forEach (function(mod) {
-        window.moduleRaid.mObj[mod] = mCac[mod].exports;
+        moduleRaid.mObj[mod] = mCac[mod].exports;
       })
-      window.moduleRaid.cArr = i.m;
-      window.moduleRaid.mGet = i;
+      moduleRaid.cArr = i.m;
+      moduleRaid.mGet = i;
     }]],
-    [[1e3], {[window.moduleRaid.mID]: function(e, t, i) {
+    [[1e3], {[moduleRaid.mID]: function(e, t, i) {
       mCac = i.c;
       Object.keys(mCac).forEach (function(mod) {
-        window.moduleRaid.mObj[mod] = mCac[mod].exports;
+        moduleRaid.mObj[mod] = mCac[mod].exports;
       })
-      window.moduleRaid.cArr = i.m;
-      window.moduleRaid.mGet = i;
-  }}, [[window.moduleRaid.mID]]]
+      moduleRaid.cArr = i.m;
+      moduleRaid.mGet = i;
+    }}, [[moduleRaid.mID]]]
   ]
 
-  moduleRaid.fillModuleArray = function() {
+  fillModuleArray = function() {
     if (typeof webpackJsonp === 'function') {
-      window.moduleRaid.args.forEach(function (argument, index) {
+      moduleRaid.args.forEach(function (argument, index) {
         try {
           webpackJsonp(...argument);
         }
         catch (err) {
-          window.moduleRaid.log(`window.moduleRaid.args[${index}] failed: ${err}`);
+          moduleRaid.log(`moduleRaid.args[${index}] failed: ${err}`);
         }
       })
     }
     else {
       try {
-        webpackJsonp.push(window.moduleRaid.args[1]);
+        webpackJsonp.push(moduleRaid.args[1]);
       }
       catch (err) {
-        window.moduleRaid.log(`Pushing window.moduleRaid.args[1] into webpackJsonp failed: ${err}`);
+        moduleRaid.log(`Pushing moduleRaid.args[1] into webpackJsonp failed: ${err}`);
       }
     }
 
-    if (window.moduleRaid.mObj.length == 0) {
+    if (moduleRaid.mObj.length == 0) {
       mEnd = false;
       mIter = 0;
 
@@ -77,7 +75,7 @@ window.moduleRaid = function (debug) {
 
       while (!mEnd) {
         try {
-          window.moduleRaid.mObj[mIter] = webpackJsonp([],[],[mIter]);
+          moduleRaid.mObj[mIter] = webpackJsonp([],[],[mIter]);
           mIter++;
         }
         catch (err) {
@@ -87,18 +85,18 @@ window.moduleRaid = function (debug) {
     }
   }
 
-  moduleRaid.fillModuleArray()
+  fillModuleArray()
 
-  var get = function get (id) {
-    return window.moduleRaid.mObj[id]
+  get = function get (id) {
+    return moduleRaid.mObj[id]
   }
 
-  var findModule = function findModule (query) {
+  findModule = function findModule (query) {
     results = [];
-    modules = Object.keys(window.moduleRaid.mObj);
+    modules = Object.keys(moduleRaid.mObj);
 
     modules.forEach(function(mKey) {
-      mod = window.moduleRaid.mObj[mKey];
+      mod = moduleRaid.mObj[mKey];
 
       if (typeof mod !== 'undefined') {
         if (typeof query === 'string') {
@@ -111,41 +109,41 @@ window.moduleRaid = function (debug) {
           for (key in mod) {
             if (key == query) results.push(mod);
           }
-        } else if (typeof query === 'function') {
+        } else if (typeof query === 'function') { 
           if (query(mod)) {
             results.push(mod);
           }
         } else {
           throw new TypeError('findModule can only find via string and function, ' + (typeof query) + ' was passed');
         }
-
+        
       }
     })
 
     return results;
   }
 
-  var findFunction = function(query) {
-    if (window.moduleRaid.cArr.length == 0) {
+  findFunction = function(query) {
+    if (moduleRaid.cArr.length == 0) {
       throw Error('No module constructors to search through!');
     }
 
     results = [];
 
     if (typeof query === 'string') {
-      window.moduleRaid.cArr.forEach(function (ctor, index) {
+      moduleRaid.cArr.forEach(function (ctor, index) {
         if (ctor.toString().includes(query)) {
-          results.push(window.moduleRaid.mObj[index]);
+          results.push(moduleRaid.mObj[index]);
         }
       })
     } else if (typeof query === 'function') {
-      modules = Object.keys(window.moduleRaid.mObj);
+      modules = Object.keys(moduleRaid.mObj);
 
       modules.forEach(function(mKey, index) {
-        mod = window.moduleRaid.mObj[mKey];
+        mod = moduleRaid.mObj[mKey];
 
         if (query(mod)) {
-          results.push(window.moduleRaid.mObj[index]);
+          results.push(moduleRaid.mObj[index]);
         }
       })
     } else {
@@ -156,11 +154,11 @@ window.moduleRaid = function (debug) {
   }
 
   return {
-    modules: window.moduleRaid.mObj,
-    constructors: window.moduleRaid.cArr,
+    modules: moduleRaid.mObj,
+    constructors: moduleRaid.cArr,
     findModule: findModule,
     findFunction: findFunction,
-    get: window.moduleRaid.mGet ? window.moduleRaid.mGet : get
+    get: moduleRaid.mGet ? moduleRaid.mGet : get
   }
 }
 
