@@ -10,4 +10,4 @@ Both operate using the exact same build process and code.
 
 v1 was licensed under GPLv3 and v2 is licensed under MIT (hopefully more permissive to incorporate into other projects)
 
-#### If you know other languages, please help us translate! https://translate.moderndeck.org/project/tweetdeck
+#### If you know other languages, please help us translate! https://crowdin.com/project/tweetdeck
