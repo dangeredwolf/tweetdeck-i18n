@@ -75,6 +75,9 @@ const mustachePatches = {
 	"status/tweet_detail.mustache":{
 		"Reply to":1
 	},
+	"menus/quality_filter_info.mustache":{
+		"Quality filter {{qualityFilterText}}":1
+	}
 }
 
 export const I18n = function(a, b, c, d, e, f) {
@@ -267,7 +270,7 @@ function patchTDFunctions() {
 			"ABBREV_FRIDAY",
 			"ABBREV_SATURDAY"
 		];
-		
+
 		const englishShortDays = ["S","M","T","W","T","F","S"];
 
 		let newShortDays = [];
@@ -304,7 +307,7 @@ export function startI18nEngine() {
 
 	window.TweetDecki18nStarted = true;
 	// Developer helper function to find strings within the mustache cluster
-	window.findMustache = (str) => {
+	window.findMustaches = (str) => {
 		let results = {};
 		for (let mustache in TD_mustaches) {
 			if (TD_mustaches[mustache].match(str)) {
