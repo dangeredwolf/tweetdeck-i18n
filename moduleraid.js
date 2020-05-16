@@ -7,6 +7,7 @@
  */
 
 const moduleRaid = function (debug) {
+  'use strict';
   moduleRaid.mID  = Math.random().toString(36).substring(7);
   moduleRaid.mObj = {};
   moduleRaid.cArr = [];
@@ -45,7 +46,7 @@ const moduleRaid = function (debug) {
     }}, [[moduleRaid.mID]]]
   ]
 
-  fillModuleArray = function() {
+  moduleRaid.fillModuleArray = function() {
     if (typeof webpackJsonp === 'function') {
       moduleRaid.args.forEach(function (argument, index) {
         try {
@@ -85,13 +86,13 @@ const moduleRaid = function (debug) {
     }
   }
 
-  fillModuleArray()
+  moduleRaid.fillModuleArray()
 
-  get = function get (id) {
+  moduleRaid.get = function get (id) {
     return moduleRaid.mObj[id]
   }
 
-  findModule = function findModule (query) {
+  moduleRaid.findModule = function findModule (query) {
     results = [];
     modules = Object.keys(moduleRaid.mObj);
 
@@ -123,7 +124,7 @@ const moduleRaid = function (debug) {
     return results;
   }
 
-  findFunction = function(query) {
+  moduleRaid.findFunction = function(query) {
     if (moduleRaid.cArr.length == 0) {
       throw Error('No module constructors to search through!');
     }
@@ -156,9 +157,9 @@ const moduleRaid = function (debug) {
   return {
     modules: moduleRaid.mObj,
     constructors: moduleRaid.cArr,
-    findModule: findModule,
-    findFunction: findFunction,
-    get: moduleRaid.mGet ? moduleRaid.mGet : get
+    findModule: moduleRaid.findModule,
+    findFunction: moduleRaid.findFunction,
+    get: moduleRaid.mGet ? moduleRaid.mGet : moduleRaid.get
   }
 }
 
