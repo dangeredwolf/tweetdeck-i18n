@@ -28,8 +28,8 @@ if (window.ModernDeck) {
 	langRoot = langFull.substring(0,2);
 } else {
 	console.log("I18n: Detected TweetDeck i18n");
-	langFull = "ru_RU";//navigator.language.replace("-","_");
-	langRoot = "ru";//navigator.language.substring(0,2);
+	langFull = "es_ES";//navigator.language.replace("-","_");
+	langRoot = "es";//navigator.language.substring(0,2);
 }
 
 export const getFullLanguage = () => langFull;
@@ -95,6 +95,8 @@ export const I18n = function(a, b, c, d, e, f) {
 		console.warn("The I18n function was supposed to receive data but didn't. Here's some other information, if they aren't undefined: ", a, b, c, d, e);
 		return "";
 	}
+
+	a = String(a);
 
 	if (debugI18n) {
 		console.log(a, b, c, d, e, f)
@@ -250,6 +252,21 @@ function patchMiscStrings() {
 				I18n(TD.controller.columnManager.MODAL_TITLE[key2]);
 			}
 		}
+		// let apiErrors = findFunction("This user has been");
+		// if (apiErrors[0]) {
+		// 	for (const key2 in apiErrors[0]) {
+		// 		console.log(key2);
+		// 		apiErrors[0][key2] =
+		// 		I18n(apiErrors[0][key2]);
+		// 	}
+		// }
+		// if (apiErrors[1]) {
+		// 	for (const key2 in apiErrors[1]) {
+		// 		console.log(key2);
+		// 		apiErrors[1][key2] =
+		// 		I18n(apiErrors[1][key2]);
+		// 	}
+		// }
 	} else {
 		console.log("Waiting on TDApi...");
 		setTimeout(patchMiscStrings,10);
