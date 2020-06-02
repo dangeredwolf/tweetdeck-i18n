@@ -28,8 +28,8 @@ if (window.ModernDeck) {
 	langRoot = langFull.substring(0,2);
 } else {
 	console.log("I18n: Detected TweetDeck i18n");
-	langFull = "es_ES";//navigator.language.replace("-","_");
-	langRoot = "es";//navigator.language.substring(0,2);
+	langFull = "ja_JP";//navigator.language.replace("-","_");
+	langRoot = "ja";//navigator.language.substring(0,2);
 }
 
 export const getFullLanguage = () => langFull;
